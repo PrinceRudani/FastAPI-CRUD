@@ -1,0 +1,6 @@
+2025-03-21 01:59:32,700 - category_controller.py - FastCRUD -  view_category - INFO - Fetching all categories
+
+2025-03-21 01:59:32,708 - category_controller.py - FastCRUD -  view_category - INFO - Fetched 3 categories
+
+2025-03-21 02:00:24,221 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (3) categories
+
