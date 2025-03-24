@@ -4,3 +4,953 @@
 
 2025-03-21 02:00:24,221 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (3) categories
 
+2025-03-21 10:40:52,738 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (3) categories
+
+2025-03-21 10:42:49,009 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: Technology
+
+2025-03-21 10:42:49,023 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: Technology
+
+2025-03-21 10:43:23,334 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: Health & Fitness
+
+2025-03-21 10:43:23,340 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: Health & Fitness
+
+2025-03-21 10:43:42,994 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: Education
+
+2025-03-21 10:43:42,998 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: Education
+
+2025-03-21 10:43:55,717 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: Finance
+
+2025-03-21 10:43:55,722 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: Finance
+
+2025-03-21 10:44:11,084 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: Entertainment
+
+2025-03-21 10:44:11,089 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: Entertainment
+
+2025-03-21 10:44:25,957 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: Travel
+
+2025-03-21 10:44:25,962 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: Travel
+
+2025-03-21 10:44:56,395 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: Food & Recipes
+
+2025-03-21 10:44:56,400 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: Food & Recipes
+
+2025-03-21 10:49:55,893 - category_controller.py - FastCRUD -  update_category - ERROR - Error updating category
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/api/controller/category/category_controller.py", line 95, in update_category
+    result = CategoryService.update_category(db, id, category_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/category/category_service.py", line 47, in update_category
+    raise ValueError("Category not found")
+ValueError: Category not found
+2025-03-21 10:50:27,661 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (13) categories
+
+2025-03-21 11:25:53,552 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (13) categories
+
+2025-03-21 11:26:10,382 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 15
+
+2025-03-21 11:26:10,389 - category_controller.py - FastCRUD -  delete_category - INFO - Category deleted successfully: ID 15
+
+2025-03-21 11:26:29,080 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 2
+
+2025-03-21 11:26:29,081 - category_controller.py - FastCRUD -  edit_category - INFO - Category details fetched successfully: ID 2
+
+2025-03-21 11:26:33,616 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 1
+
+2025-03-21 11:26:33,617 - category_controller.py - FastCRUD -  edit_category - INFO - Category details fetched successfully: ID 1
+
+2025-03-21 11:26:37,959 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 10
+
+2025-03-21 11:26:37,961 - category_controller.py - FastCRUD -  edit_category - INFO - Category details fetched successfully: ID 10
+
+2025-03-21 11:48:49,642 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: prince
+
+2025-03-21 11:49:10,297 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: princes
+
+2025-03-21 11:51:39,669 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (14) categories
+
+2025-03-21 11:53:51,319 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (14) categories
+
+2025-03-21 11:54:37,471 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (14) categories
+
+2025-03-21 11:55:34,426 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (14) categories
+
+2025-03-21 11:57:41,652 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (14) categories
+
+2025-03-21 11:57:47,633 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (14) categories
+
+2025-03-21 11:58:09,428 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: strindfgbg
+
+2025-03-21 13:29:42,100 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (15) categories
+
+2025-03-21 13:40:43,133 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (15) categories
+
+2025-03-21 13:40:52,315 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: FoodRecipes
+
+2025-03-21 13:40:52,323 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: FoodRecipes
+
+2025-03-21 13:41:06,355 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 19
+
+2025-03-21 13:41:06,362 - category_controller.py - FastCRUD -  delete_category - INFO - Category deleted successfully: ID 19
+
+2025-03-21 13:41:36,736 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: stringdc
+
+2025-03-21 13:41:36,745 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: stringdc
+
+2025-03-21 13:41:52,966 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (16) categories
+
+2025-03-21 13:42:07,240 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 14
+
+2025-03-21 13:42:07,250 - category_controller.py - FastCRUD -  delete_category - INFO - Category deleted successfully: ID 14
+
+2025-03-21 13:42:24,435 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 19
+
+2025-03-21 13:42:24,437 - category_controller.py - FastCRUD -  edit_category - ERROR - Error fetching category details
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/api/controller/category/category_controller.py", line 73, in edit_category
+    category_data = CategoryService.get_category_by_id(db, id)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/category/category_service.py", line 37, in get_category_by_id
+    raise ValueError("Category not found")
+ValueError: Category not found
+2025-03-21 13:42:29,644 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 12
+
+2025-03-21 13:42:29,646 - category_controller.py - FastCRUD -  edit_category - INFO - Category details fetched successfully: ID 12
+
+2025-03-21 13:51:30,491 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 18, Name: wdefr
+
+2025-03-21 13:51:30,509 - category_controller.py - FastCRUD -  update_category - INFO - Category updated successfully: ID 18, Name: wdefr
+
+2025-03-21 13:51:40,789 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 18, Name: wdefrwdefrgbhn
+
+2025-03-21 13:51:40,798 - category_controller.py - FastCRUD -  update_category - INFO - Category updated successfully: ID 18, Name: wdefrwdefrgbhn
+
+2025-03-21 13:51:52,262 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 18, Name: fashion
+
+2025-03-21 13:51:52,270 - category_controller.py - FastCRUD -  update_category - INFO - Category updated successfully: ID 18, Name: fashion
+
+2025-03-21 14:26:25,768 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 10
+
+2025-03-21 14:26:25,781 - category_controller.py - FastCRUD -  edit_category - INFO - Category details fetched successfully: ID 10
+
+2025-03-21 14:26:27,108 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 10
+
+2025-03-21 14:26:27,110 - category_controller.py - FastCRUD -  edit_category - INFO - Category details fetched successfully: ID 10
+
+2025-03-21 14:26:28,344 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 10
+
+2025-03-21 14:26:28,346 - category_controller.py - FastCRUD -  edit_category - INFO - Category details fetched successfully: ID 10
+
+2025-03-21 14:29:03,433 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 8, Name: Cybersecurity
+
+2025-03-21 14:29:03,449 - category_controller.py - FastCRUD -  update_category - INFO - Category updated successfully: ID 8, Name: Cybersecurity
+
+2025-03-21 14:36:17,990 - category_controller.py - FastCRUD -  view_category - INFO - Fetched all (11) categories
+
+2025-03-21 14:36:21,003 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 8, Name: Cybersecurity
+
+2025-03-21 14:36:21,014 - category_controller.py - FastCRUD -  update_category - INFO - Category updated successfully: ID 8, Name: Cybersecurity
+
+2025-03-21 14:36:23,946 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 10
+
+2025-03-21 14:36:23,947 - category_controller.py - FastCRUD -  edit_category - INFO - Category details fetched successfully: ID 10
+
+2025-03-21 14:36:27,381 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: FoodRedccipes
+
+2025-03-21 14:36:27,388 - category_controller.py - FastCRUD -  insert_category - INFO - Category inserted successfully: FoodRedccipes
+
+2025-03-21 14:36:39,926 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 21
+
+2025-03-21 14:36:39,932 - category_controller.py - FastCRUD -  delete_category - INFO - Category deleted successfully: ID 21
+
+2025-03-21 15:15:18,988 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: strinyuiklkmng
+
+2025-03-21 15:31:26,991 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: FoodRedccipes
+
+2025-03-21 15:31:26,998 - category_controller.py - FastCRUD -  insert_category - ERROR - Error inserting category
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'FoodRedccipes' for key 'category_table.category_name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/api/controller/category/category_controller.py", line 29, in insert_category
+    result = CategoryService.insert_category(category, db)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/category/category_service.py", line 19, in insert_category
+    return CategoryDAO.insert_category(session, db_category)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/dao/category/category_dao.py", line 11, in insert_category
+    return MysqlCommonQuery.insert(session, category)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 12, in insert
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'FoodRedccipes' for key 'category_table.category_name'")
+[SQL: INSERT INTO category_table (category_name, category_description, is_deleted, created_at, modified_at) VALUES (%(category_name)s, %(category_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'category_name': 'FoodRedccipes', 'category_description': 'Delicious recipes, cooking techniques, and restaurant reviews..', 'is_deleted': 0, 'created_at': 1742551286, 'modified_at': 1742551286}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-03-21 15:31:35,837 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: FoodscvfdRedccipes
+
+2025-03-21 15:31:43,817 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 24
+
+2025-03-21 15:31:47,165 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 24
+
+2025-03-21 15:31:59,630 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 22
+
+2025-03-21 15:37:17,468 - category_controller.py - FastCRUD -  view_category - ERROR - Error fetching categories
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/api/controller/category/category_controller.py", line 41, in view_category
+    result = CategoryService.get_all_categories(db)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/category/category_service.py", line 42, in get_all_categories
+    ResponseMessageEnum.SUCCESS.value,
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/anaconda3/envs/DjangoProject/lib/python3.11/enum.py", line 786, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: SUCCESS
+2025-03-21 15:37:54,571 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 8, Name: Cybersecurity
+
+2025-03-21 15:37:54,588 - category_controller.py - FastCRUD -  update_category - ERROR - Error updating category
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/api/controller/category/category_controller.py", line 85, in update_category
+    result = CategoryService.update_category(db, id, category_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/category/category_service.py", line 106, in update_category
+    ResponseMessageEnum.UPDATED_SUCCESSFULLY.value,
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/anaconda3/envs/DjangoProject/lib/python3.11/enum.py", line 786, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: UPDATED_SUCCESSFULLY
+2025-03-21 15:48:35,217 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 8, Name: Cybersecurisdty
+
+2025-03-21 15:52:07,904 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: FoodscvfdRedcdccipes
+
+2025-03-21 15:52:36,239 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: FoodscvfdRedcdccipes
+
+2025-03-21 15:52:36,249 - category_controller.py - FastCRUD -  insert_category - ERROR - Error inserting category
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'FoodscvfdRedcdccipes' for key 'category_table.category_name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/api/controller/category/category_controller.py", line 30, in insert_category
+    result = CategoryService.insert_category(category, db)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/category/category_service.py", line 26, in insert_category
+    result = CategoryDAO.insert_category(session, db_category)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/dao/category/category_dao.py", line 11, in insert_category
+    return MysqlCommonQuery.insert(session, category)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 12, in insert
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'FoodscvfdRedcdccipes' for key 'category_table.category_name'")
+[SQL: INSERT INTO category_table (category_name, category_description, is_deleted, created_at, modified_at) VALUES (%(category_name)s, %(category_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'category_name': 'FoodscvfdRedcdccipes', 'category_description': 'Delicious recipes, cooking techniques, and restaurant reviews..', 'is_deleted': 0, 'created_at': 1742552556, 'modified_at': 1742552556}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-03-21 15:54:08,747 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x72705332fd50>, <base.vo.category_vo.CategoryVO object at 0x72705332fdd0>, <base.vo.category_vo.CategoryVO object at 0x72705332fe50>, <base.vo.category_vo.CategoryVO object at 0x72705332fed0>, <base.vo.category_vo.CategoryVO object at 0x72705332ff50>, <base.vo.category_vo.CategoryVO object at 0x72705290c050>, <base.vo.category_vo.CategoryVO object at 0x72705290c0d0>, <base.vo.category_vo.CategoryVO object at 0x72705290c150>, <base.vo.category_vo.CategoryVO object at 0x72705290c210>, <base.vo.category_vo.CategoryVO object at 0x72705332ffd0>, <base.vo.category_vo.CategoryVO object at 0x72705290c3d0>, <base.vo.category_vo.CategoryVO object at 0x72705290c4d0>]}
+
+2025-03-21 15:55:23,133 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 13, Name: strinwdfrvdcg
+
+2025-03-21 15:55:37,871 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 13, Name: strinwdfrvdcg
+
+2025-03-21 15:56:15,389 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 25
+
+2025-03-21 15:56:24,847 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 25
+
+2025-03-21 16:27:50,495 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: FoodscvfdRedcdccsdcipes
+
+2025-03-21 16:27:53,665 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x707768b07e10>, <base.vo.category_vo.CategoryVO object at 0x707768b07e90>, <base.vo.category_vo.CategoryVO object at 0x707768b07f10>, <base.vo.category_vo.CategoryVO object at 0x707768b07f90>, <base.vo.category_vo.CategoryVO object at 0x707768b10050>, <base.vo.category_vo.CategoryVO object at 0x707768b10110>, <base.vo.category_vo.CategoryVO object at 0x707768b10190>, <base.vo.category_vo.CategoryVO object at 0x707768b10210>, <base.vo.category_vo.CategoryVO object at 0x707768b102d0>, <base.vo.category_vo.CategoryVO object at 0x707768b100d0>, <base.vo.category_vo.CategoryVO object at 0x707768b10490>, <base.vo.category_vo.CategoryVO object at 0x707768b10590>]}
+
+2025-03-21 16:27:58,353 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 25
+
+2025-03-21 16:28:04,618 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 24
+
+2025-03-21 16:28:19,253 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 1
+
+2025-03-21 16:28:27,078 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 8, Name: Cybersecurisdty
+
+2025-03-21 16:53:12,720 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 12 categories
+
+2025-03-21 16:53:12,720 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x7a9373c20510>, <base.vo.category_vo.CategoryVO object at 0x7a937418d710>, <base.vo.category_vo.CategoryVO object at 0x7a9373c205d0>, <base.vo.category_vo.CategoryVO object at 0x7a9373c20650>, <base.vo.category_vo.CategoryVO object at 0x7a9373c206d0>, <base.vo.category_vo.CategoryVO object at 0x7a9373c20790>, <base.vo.category_vo.CategoryVO object at 0x7a9373c20810>, <base.vo.category_vo.CategoryVO object at 0x7a9373c20890>, <base.vo.category_vo.CategoryVO object at 0x7a9373c20950>, <base.vo.category_vo.CategoryVO object at 0x7a9373c20750>, <base.vo.category_vo.CategoryVO object at 0x7a9373c20b10>, <base.vo.category_vo.CategoryVO object at 0x7a9373c20c10>]}
+
+2025-03-21 16:53:22,721 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 7
+
+2025-03-21 16:53:22,729 - category_service.py - FastCRUD -  delete_category - INFO - Category deleted: ID 7
+
+2025-03-21 16:53:30,978 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 1
+
+2025-03-21 16:53:30,980 - category_service.py - FastCRUD -  get_category_by_id - INFO - Category retrieved: Sports
+
+2025-03-21 16:53:38,642 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 8, Name: Cybersecurisdty
+
+2025-03-21 16:53:38,652 - category_service.py - FastCRUD -  update_category - INFO - Category updated successfully: ID 8
+
+2025-03-21 16:53:42,962 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: FoodscvfdRedccdccsdcipes
+
+2025-03-21 16:53:42,968 - category_service.py - FastCRUD -  insert_category - INFO - Category inserted successfully: FoodscvfdRedccdccsdcipes
+
+2025-03-21 16:54:11,013 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 10 categories
+
+2025-03-21 16:54:11,013 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x7a9373a3e810>, <base.vo.category_vo.CategoryVO object at 0x7a9373a3e890>, <base.vo.category_vo.CategoryVO object at 0x7a9373a3e910>, <base.vo.category_vo.CategoryVO object at 0x7a9373a3e990>, <base.vo.category_vo.CategoryVO object at 0x7a9373a3ea10>, <base.vo.category_vo.CategoryVO object at 0x7a9373a3ead0>, <base.vo.category_vo.CategoryVO object at 0x7a9373a3eb50>, <base.vo.category_vo.CategoryVO object at 0x7a9373a3ebd0>, <base.vo.category_vo.CategoryVO object at 0x7a9373a3ec50>, <base.vo.category_vo.CategoryVO object at 0x7a9373a3ea90>]}
+
+2025-03-21 16:54:21,319 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 14, Name: Cybersecurisdty
+
+2025-03-21 16:54:21,321 - category_service.py - FastCRUD -  update_category - WARNING - Category not found for update: ID 14
+
+2025-03-21 17:09:08,363 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 10 categories
+
+2025-03-21 17:09:08,363 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x705434f2bf50>, <base.vo.category_vo.CategoryVO object at 0x705434f2bfd0>, <base.vo.category_vo.CategoryVO object at 0x705434508090>, <base.vo.category_vo.CategoryVO object at 0x705434508110>, <base.vo.category_vo.CategoryVO object at 0x705434508190>, <base.vo.category_vo.CategoryVO object at 0x705434508250>, <base.vo.category_vo.CategoryVO object at 0x7054345082d0>, <base.vo.category_vo.CategoryVO object at 0x705434508350>, <base.vo.category_vo.CategoryVO object at 0x705434508410>, <base.vo.category_vo.CategoryVO object at 0x705434508210>]}
+
+2025-03-21 17:09:57,875 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 10 categories
+
+2025-03-21 17:09:57,875 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x728d5ab1c150>, <base.vo.category_vo.CategoryVO object at 0x728d5ab1c1d0>, <base.vo.category_vo.CategoryVO object at 0x728d5ab1c250>, <base.vo.category_vo.CategoryVO object at 0x728d5ab1c2d0>, <base.vo.category_vo.CategoryVO object at 0x728d5ab1c350>, <base.vo.category_vo.CategoryVO object at 0x728d5ab1c410>, <base.vo.category_vo.CategoryVO object at 0x728d5ab1c490>, <base.vo.category_vo.CategoryVO object at 0x728d5ab1c510>, <base.vo.category_vo.CategoryVO object at 0x728d5ab1c5d0>, <base.vo.category_vo.CategoryVO object at 0x728d5ab1c3d0>]}
+
+2025-03-21 17:13:10,153 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 10 categories
+
+2025-03-21 17:13:10,154 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x73fb05527c90>, <base.vo.category_vo.CategoryVO object at 0x73fb06289fd0>, <base.vo.category_vo.CategoryVO object at 0x73fb05527cd0>, <base.vo.category_vo.CategoryVO object at 0x73fb05527d50>, <base.vo.category_vo.CategoryVO object at 0x73fb05527dd0>, <base.vo.category_vo.CategoryVO object at 0x73fb05527e90>, <base.vo.category_vo.CategoryVO object at 0x73fb05527f10>, <base.vo.category_vo.CategoryVO object at 0x73fb05527f90>, <base.vo.category_vo.CategoryVO object at 0x73fb04b04090>, <base.vo.category_vo.CategoryVO object at 0x73fb05527e50>]}
+
+2025-03-21 17:17:33,153 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 10 categories
+
+2025-03-21 17:17:33,153 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x73fb05527e10>, <base.vo.category_vo.CategoryVO object at 0x73fb05527d10>, <base.vo.category_vo.CategoryVO object at 0x73fb05aa40d0>, <base.vo.category_vo.CategoryVO object at 0x73fb04b04590>, <base.vo.category_vo.CategoryVO object at 0x73fb04b04510>, <base.vo.category_vo.CategoryVO object at 0x73fb04b04350>, <base.vo.category_vo.CategoryVO object at 0x73fb04b04250>, <base.vo.category_vo.CategoryVO object at 0x73fb04b040d0>, <base.vo.category_vo.CategoryVO object at 0x73fb04b06450>, <base.vo.category_vo.CategoryVO object at 0x73fb04b04410>]}
+
+2025-03-21 17:18:19,366 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 10 categories
+
+2025-03-21 17:18:19,366 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x706fbad0cc90>, <base.vo.category_vo.CategoryVO object at 0x706fbad0cd10>, <base.vo.category_vo.CategoryVO object at 0x706fbad0cd90>, <base.vo.category_vo.CategoryVO object at 0x706fbad0ce10>, <base.vo.category_vo.CategoryVO object at 0x706fbad0ce90>, <base.vo.category_vo.CategoryVO object at 0x706fbad0cf50>, <base.vo.category_vo.CategoryVO object at 0x706fbad0cfd0>, <base.vo.category_vo.CategoryVO object at 0x706fbad0d050>, <base.vo.category_vo.CategoryVO object at 0x706fbad0d0d0>, <base.vo.category_vo.CategoryVO object at 0x706fbad0cf10>]}
+
+2025-03-21 17:18:54,220 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 10 categories
+
+2025-03-21 17:18:54,220 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x7cc55690c790>, <base.vo.category_vo.CategoryVO object at 0x7cc55690c850>, <base.vo.category_vo.CategoryVO object at 0x7cc55690c750>, <base.vo.category_vo.CategoryVO object at 0x7cc55690d250>, <base.vo.category_vo.CategoryVO object at 0x7cc55690d2d0>, <base.vo.category_vo.CategoryVO object at 0x7cc55690d390>, <base.vo.category_vo.CategoryVO object at 0x7cc55690d410>, <base.vo.category_vo.CategoryVO object at 0x7cc55690d490>, <base.vo.category_vo.CategoryVO object at 0x7cc55690d510>, <base.vo.category_vo.CategoryVO object at 0x7cc55690d350>]}
+
+2025-03-21 17:59:18,580 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: fashion
+
+2025-03-21 17:59:18,614 - category_service.py - FastCRUD -  insert_category - INFO - Category inserted successfully: fashion
+
+2025-03-24 10:01:07,415 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: strindcfv g
+
+2025-03-24 10:01:07,483 - category_service.py - FastCRUD -  insert_category - INFO - Category inserted successfully: strindcfv g
+
+2025-03-24 10:01:12,374 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 12 categories
+
+2025-03-24 10:01:12,375 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x734dcb563590>, <base.vo.category_vo.CategoryVO object at 0x734dcb563610>, <base.vo.category_vo.CategoryVO object at 0x734dcb563690>, <base.vo.category_vo.CategoryVO object at 0x734dcb563710>, <base.vo.category_vo.CategoryVO object at 0x734dcb563790>, <base.vo.category_vo.CategoryVO object at 0x734dcb563850>, <base.vo.category_vo.CategoryVO object at 0x734dcb5638d0>, <base.vo.category_vo.CategoryVO object at 0x734dcb563950>, <base.vo.category_vo.CategoryVO object at 0x734dcb5639d0>, <base.vo.category_vo.CategoryVO object at 0x734dcb563810>, <base.vo.category_vo.CategoryVO object at 0x734dcb563a90>, <base.vo.category_vo.CategoryVO object at 0x734dcb563b10>]}
+
+2025-03-24 10:05:28,684 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 30
+
+2025-03-24 10:05:28,694 - category_service.py - FastCRUD -  delete_category - INFO - Category deleted: ID 30
+
+2025-03-24 10:06:51,424 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 11 categories
+
+2025-03-24 10:06:51,424 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x7aaa3f71df50>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71dfd0>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71e050>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71e0d0>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71e150>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71e210>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71e290>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71e310>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71e390>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71e1d0>, <base.vo.category_vo.CategoryVO object at 0x7aaa3f71e450>]}
+
+2025-03-24 10:13:29,537 - category_service.py - FastCRUD -  get_all_categories - INFO - Fetched 11 categories
+
+2025-03-24 10:13:29,538 - category_controller.py - FastCRUD -  view_category - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x769441d19d90>, <base.vo.category_vo.CategoryVO object at 0x769441d19e10>, <base.vo.category_vo.CategoryVO object at 0x769441d19e90>, <base.vo.category_vo.CategoryVO object at 0x769441d19f10>, <base.vo.category_vo.CategoryVO object at 0x769441d19f90>, <base.vo.category_vo.CategoryVO object at 0x769441d1a050>, <base.vo.category_vo.CategoryVO object at 0x769441d1a0d0>, <base.vo.category_vo.CategoryVO object at 0x769441d1a150>, <base.vo.category_vo.CategoryVO object at 0x769441d1a1d0>, <base.vo.category_vo.CategoryVO object at 0x769441d1a010>, <base.vo.category_vo.CategoryVO object at 0x769441d1a290>]}
+
+2025-03-24 10:13:35,542 - category_controller.py - FastCRUD -  insert_category - INFO - Attempting to insert new category: stdcvfring
+
+2025-03-24 10:13:35,550 - category_service.py - FastCRUD -  insert_category - INFO - Category inserted successfully: stdcvfring
+
+2025-03-24 10:13:49,205 - category_controller.py - FastCRUD -  delete_category - INFO - Attempting to delete category with ID: 31
+
+2025-03-24 10:13:49,212 - category_service.py - FastCRUD -  delete_category - INFO - Category deleted: ID 31
+
+2025-03-24 10:14:01,828 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 31
+
+2025-03-24 10:14:01,830 - category_service.py - FastCRUD -  get_category_by_id - WARNING - Category not found: ID 31
+
+2025-03-24 10:14:05,431 - category_controller.py - FastCRUD -  edit_category - INFO - Fetching category details for ID: 29
+
+2025-03-24 10:14:05,433 - category_service.py - FastCRUD -  get_category_by_id - INFO - Category retrieved: fashion
+
+2025-03-24 10:14:15,924 - category_controller.py - FastCRUD -  update_category - INFO - Attempting to update category: ID 29, Name: stringvf
+
+2025-03-24 10:14:15,933 - category_service.py - FastCRUD -  update_category - INFO - Category updated successfully: ID 29
+
+2025-03-24 10:18:04,053 - category_service.py - FastCRUD -  get_all_categories_service - INFO - Fetched 11 categories
+
+2025-03-24 10:18:04,053 - category_controller.py - FastCRUD -  view_category_controller - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x707f3c30f1d0>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f250>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f2d0>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f350>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f3d0>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f490>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f510>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f590>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f610>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f450>, <base.vo.category_vo.CategoryVO object at 0x707f3c30f6d0>]}
+
+2025-03-24 10:37:01,269 - category_service.py - FastCRUD -  get_all_categories_service - INFO - Fetched 11 categories
+
+2025-03-24 10:37:01,269 - category_controller.py - FastCRUD -  view_category_controller - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x78074c72dd50>, <base.vo.category_vo.CategoryVO object at 0x78074c72ddd0>, <base.vo.category_vo.CategoryVO object at 0x78074c72de50>, <base.vo.category_vo.CategoryVO object at 0x78074c72ded0>, <base.vo.category_vo.CategoryVO object at 0x78074c72df50>, <base.vo.category_vo.CategoryVO object at 0x78074c72e010>, <base.vo.category_vo.CategoryVO object at 0x78074c72e090>, <base.vo.category_vo.CategoryVO object at 0x78074c72e110>, <base.vo.category_vo.CategoryVO object at 0x78074c72e190>, <base.vo.category_vo.CategoryVO object at 0x78074c72dfd0>, <base.vo.category_vo.CategoryVO object at 0x78074c72e250>]}
+
+2025-03-24 10:44:07,035 - category_service.py - FastCRUD -  get_all_categories_service - INFO - Fetched 11 categories
+
+2025-03-24 10:44:07,036 - category_controller.py - FastCRUD -  view_category_controller - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x7110bfb1d8d0>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1d950>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1d9d0>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1da50>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1dad0>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1db90>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1dc10>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1dc90>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1dd10>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1db50>, <base.vo.category_vo.CategoryVO object at 0x7110bfb1ddd0>]}
+
+2025-03-24 11:00:15,208 - category_controller.py - FastCRUD -  insert_category_controller - INFO - Attempting to insert new category: stridsfgbng
+
+2025-03-24 11:00:15,225 - category_service.py - FastCRUD -  insert_category_service - INFO - Category inserted successfully: stridsfgbng
+
+2025-03-24 11:00:23,044 - category_service.py - FastCRUD -  get_all_categories_service - INFO - Fetched 12 categories
+
+2025-03-24 11:00:23,044 - category_controller.py - FastCRUD -  view_category_controller - INFO - {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x72a37bd2c910>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2c990>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2ca10>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2ca90>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2cb10>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2cbd0>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2cc50>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2ccd0>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2cd50>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2cb90>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2cf10>, <base.vo.category_vo.CategoryVO object at 0x72a37bd2d010>]}
+
+2025-03-24 11:03:00,885 - category_controller.py - FastCRUD -  delete_category_controller - INFO - Attempting to delete category with ID: 32
+
+2025-03-24 11:03:00,896 - category_service.py - FastCRUD -  delete_category_service - INFO - Category deleted: ID 32
+
+2025-03-24 11:04:57,597 - category_controller.py - FastCRUD -  edit_category_controller - INFO - Fetching category details for ID: 29
+
+2025-03-24 11:04:57,599 - category_service.py - FastCRUD -  get_category_by_id_service - INFO - Category retrieved: stringvf
+
+2025-03-24 11:59:58,567 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2522, in get_property
+    return self._props[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'subcategories'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 24, in insert_subcategory_service
+    subcategory_vo = SubcategoryVO(**subcategory_dto.model_dump())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    manager.dispatch.init(self, args, kwargs)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/event/attr.py", line 497, in __call__
+    fn(*args, **kw)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 4405, in _event_on_init
+    instrumenting_mapper._check_configure()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/interfaces.py", line 589, in init
+    self.do_init()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/relationships.py", line 1661, in do_init
+    self._generate_backref()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/relationships.py", line 2147, in _generate_backref
+    self._add_reverse_property(self.back_populates)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/relationships.py", line 1592, in _add_reverse_property
+    other = self.mapper.get_property(key, _configure_mappers=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2524, in get_property
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[CategoryVO(category_table)]' has no property 'subcategories'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-03-24 12:00:32,903 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2522, in get_property
+    return self._props[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'subcategory_table'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 24, in insert_subcategory_service
+    subcategory_vo = SubcategoryVO(**subcategory_dto.model_dump())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    manager.dispatch.init(self, args, kwargs)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/event/attr.py", line 497, in __call__
+    fn(*args, **kw)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 4405, in _event_on_init
+    instrumenting_mapper._check_configure()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/interfaces.py", line 589, in init
+    self.do_init()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/relationships.py", line 1661, in do_init
+    self._generate_backref()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/relationships.py", line 2147, in _generate_backref
+    self._add_reverse_property(self.back_populates)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/relationships.py", line 1592, in _add_reverse_property
+    other = self.mapper.get_property(key, _configure_mappers=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2524, in get_property
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[CategoryVO(category_table)]' has no property 'subcategory_table'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-03-24 12:00:37,960 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2522, in get_property
+    return self._props[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'subcategory_table'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 24, in insert_subcategory_service
+    subcategory_vo = SubcategoryVO(**subcategory_dto.model_dump())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    manager.dispatch.init(self, args, kwargs)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/event/attr.py", line 497, in __call__
+    fn(*args, **kw)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 4405, in _event_on_init
+    instrumenting_mapper._check_configure()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/interfaces.py", line 589, in init
+    self.do_init()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/relationships.py", line 1661, in do_init
+    self._generate_backref()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/relationships.py", line 2147, in _generate_backref
+    self._add_reverse_property(self.back_populates)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/relationships.py", line 1592, in _add_reverse_property
+    other = self.mapper.get_property(key, _configure_mappers=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/mapper.py", line 2524, in get_property
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[CategoryVO(category_table)]' has no property 'subcategory_table'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-03-24 12:02:09,383 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'FastCRUD_db.subcategory_table' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 27, in insert_subcategory_service
+    result = SubcategoryDAO.insert_subcategory_dao(subcategory_vo, session)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/dao/subcategory/subcategory_dao.py", line 8, in insert_subcategory_dao
+    return MysqlCommonQuery.insert_query(subcategory_vo, session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 11, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1146, "Table 'FastCRUD_db.subcategory_table' doesn't exist")
+[SQL: INSERT INTO subcategory_table (category_id, subcategory_name, subcategory_description, is_deleted, created_at, modified_at) VALUES (%(category_id)s, %(subcategory_name)s, %(subcategory_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'category_id': 1, 'subcategory_name': 'Athletics', 'subcategory_description': 'running, jumping, throwing', 'is_deleted': 0, 'created_at': 1742797929, 'modified_at': 1742797929}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-03-24 12:13:14,334 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'FastCRUD_db.subcategory_table' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 27, in insert_subcategory_service
+    result = SubcategoryDAO.insert_subcategory_dao(subcategory_vo, session)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/dao/subcategory/subcategory_dao.py", line 8, in insert_subcategory_dao
+    return MysqlCommonQuery.insert_query(subcategory_vo, session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 11, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1146, "Table 'FastCRUD_db.subcategory_table' doesn't exist")
+[SQL: INSERT INTO subcategory_table (category_id, subcategory_name, subcategory_description, is_deleted, created_at, modified_at) VALUES (%(category_id)s, %(subcategory_name)s, %(subcategory_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'category_id': 1, 'subcategory_name': 'Athletics', 'subcategory_description': 'running, jumping, throwing', 'is_deleted': 0, 'created_at': 1742798594, 'modified_at': 1742798594}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-03-24 12:15:58,891 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: Athletics
+
+2025-03-24 12:16:11,718 - subcategory_service.py - FastCRUD -  get_all_subcategories_service - INFO - Fetched 1 subcategories
+
+2025-03-24 12:19:09,713 - subcategory_service.py - FastCRUD -  get_subcategory_by_id_service - INFO - Subcategory retrieved: Athletics
+
+2025-03-24 12:19:33,727 - subcategory_service.py - FastCRUD -  update_subcategory_service - INFO - Subcategory updated successfully: ID 1
+
+2025-03-24 12:22:48,144 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: dfgh
+
+2025-03-24 12:23:20,645 - subcategory_service.py - FastCRUD -  get_all_subcategories_service - INFO - Fetched 2 subcategories
+
+2025-03-24 12:23:51,285 - subcategory_service.py - FastCRUD -  delete_subcategory_service - INFO - Subcategory deleted: ID 1
+
+2025-03-24 12:25:47,872 - subcategory_service.py - FastCRUD -  get_subcategory_by_id_service - INFO - Subcategory retrieved: dfgh
+
+2025-03-24 12:26:07,838 - subcategory_service.py - FastCRUD -  get_subcategory_by_id_service - INFO - Subcategory retrieved: dfgh
+
+2025-03-24 12:26:37,837 - category_controller.py - FastCRUD -  edit_category_controller - INFO - Fetching category details for ID: 1
+
+2025-03-24 12:26:37,842 - category_service.py - FastCRUD -  get_category_by_id_service - INFO - Category retrieved: Sports
+
+2025-03-24 12:27:57,860 - subcategory_service.py - FastCRUD -  update_subcategory_service - INFO - Subcategory updated successfully: ID 2
+
+2025-03-24 12:28:16,661 - subcategory_service.py - FastCRUD -  update_subcategory_service - WARNING - Subcategory not found for update: ID 1
+
+2025-03-24 12:30:42,951 - subcategory_service.py - FastCRUD -  update_subcategory_service - WARNING - Subcategory not found for update: ID 1
+
+2025-03-24 12:30:49,435 - subcategory_service.py - FastCRUD -  update_subcategory_service - WARNING - Subcategory not found for update: ID 1
+

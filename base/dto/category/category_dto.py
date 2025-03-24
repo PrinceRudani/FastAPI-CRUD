@@ -6,14 +6,6 @@ class CategoryDTO(BaseModel):
     category_name: str
     category_description: str
 
-    @classmethod
-    def as_form(
-        cls, category_name: str = Form(...), category_description: str = Form(...)
-    ):
-        return cls(
-            category_name=category_name, category_description=category_description
-        )
-
 
 class CategoryResponse(CategoryDTO):
     id: int

@@ -1,0 +1,117 @@
+.
+├── alembic.ini
+├── app.log
+├── base
+│   ├── api
+│   │   ├── controller
+│   │   │   ├── category
+│   │   │   │   ├── category_controller.py
+│   │   │   │   └── __pycache__
+│   │   │   │       └── category_controller.cpython-311.pyc
+│   │   │   ├── login
+│   │   │   │   └── login_controller.py
+│   │   │   ├── __pycache__
+│   │   │   │   └── __init__.cpython-311.pyc
+│   │   │   └── subcategory
+│   │   │       ├── __pycache__
+│   │   │       │   └── subcategory_controller.cpython-311.pyc
+│   │   │       └── subcategory_controller.py
+│   │   └── __pycache__
+│   │       └── __init__.cpython-311.pyc
+│   ├── client
+│   │   ├── mysql_common
+│   │   │   ├── mysql_common_query.py
+│   │   │   └── __pycache__
+│   │   │       ├── __init__.cpython-311.pyc
+│   │   │       └── mysql_common_query.cpython-311.pyc
+│   │   └── __pycache__
+│   │       └── __init__.cpython-311.pyc
+│   ├── config
+│   │   ├── logger_config.py
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-311.pyc
+│   │       └── logger_config.cpython-311.pyc
+│   ├── custom_enum
+│   │   ├── http_enum.py
+│   │   ├── __pycache__
+│   │   │   └── http_enum.cpython-311.pyc
+│   │   └── static_enum.py
+│   ├── dao
+│   │   ├── category
+│   │   │   ├── category_dao.py
+│   │   │   └── __pycache__
+│   │   │       └── category_dao.cpython-311.pyc
+│   │   └── subcategory
+│   │       ├── __pycache__
+│   │       │   └── subcategory_dao.cpython-311.pyc
+│   │       └── subcategory_dao.py
+│   ├── db
+│   │   ├── database.py
+│   │   └── __pycache__
+│   │       └── database.cpython-311.pyc
+│   ├── dto
+│   │   ├── category
+│   │   │   ├── category_dto.py
+│   │   │   └── __pycache__
+│   │   │       └── category_dto.cpython-311.pyc
+│   │   └── subcategory
+│   │       ├── __pycache__
+│   │       │   └── subcategory_dto.cpython-311.pyc
+│   │       └── subcategory_dto.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   └── __init__.cpython-311.pyc
+│   ├── routes
+│   │   ├── api_routes.py
+│   │   └── __pycache__
+│   │       ├── api_routes.cpython-311.pyc
+│   │       └── __init__.cpython-311.pyc
+│   ├── service
+│   │   ├── category
+│   │   │   ├── category_service.py
+│   │   │   └── __pycache__
+│   │   │       └── category_service.cpython-311.pyc
+│   │   └── subcategory
+│   │       ├── __pycache__
+│   │       │   └── subcategory_service.cpython-311.pyc
+│   │       └── subcategory_service.py
+│   ├── utils
+│   │   ├── constant.py
+│   │   ├── custom_exception.py
+│   │   ├── __pycache__
+│   │   │   ├── constant.cpython-311.pyc
+│   │   │   ├── custom_exception.cpython-311.pyc
+│   │   │   ├── __init__.cpython-311.pyc
+│   │   │   └── time_stamp.cpython-311.pyc
+│   │   └── time_stamp.py
+│   └── vo
+│       ├── category_vo.py
+│       ├── __pycache__
+│       │   ├── category_vo.cpython-311.pyc
+│       │   └── subcategory_vo.cpython-311.pyc
+│       └── subcategory_vo.py
+├── category.log
+├── config.ini
+├── config.py
+├── main.py
+├── migrations
+│   ├── env.py
+│   ├── __pycache__
+│   │   └── env.cpython-311.pyc
+│   ├── README
+│   ├── script.py.mako
+│   └── versions
+│       ├── e11e9f0fe781_initial_migration.py
+│       ├── f4f80ce76f8b_reverting_category_id_to_id.py
+│       └── __pycache__
+│           ├── e11e9f0fe781_initial_migration.cpython-311.pyc
+│           └── f4f80ce76f8b_reverting_category_id_to_id.cpython-311.pyc
+├── project_structure.txt
+├── __pycache__
+│   ├── config.cpython-311.pyc
+│   └── main.cpython-311.pyc
+├── test
+│   └── database_test.py
+└── test.db
+
+48 directories, 66 files
