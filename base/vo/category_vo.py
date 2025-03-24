@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy.orm import relationship
 
 from base.db.database import Base
 
@@ -12,3 +13,7 @@ class CategoryVO(Base):
     is_deleted = Column(Boolean, default=False)
     created_at = Column(Integer, nullable=False)
     modified_at = Column(Integer, nullable=False)
+
+    # Correct relationship
+    subcategories = relationship("SubcategoryVO", back_populates="category",
+                                 cascade="all, delete-orphan")

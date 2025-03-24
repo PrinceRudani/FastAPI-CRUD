@@ -2,5 +2,5 @@ import time
 
 
 def get_current_timestamp():
-    print(time.time())
+    # print(time.time())
     return int(time.time())
