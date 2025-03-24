@@ -48,4 +48,4 @@ dist/
 .ipynb_checkpoints/
 
 # Ignore local development files
-.local/
+.local/config.ini
