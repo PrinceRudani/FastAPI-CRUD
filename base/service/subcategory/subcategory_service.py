@@ -8,6 +8,7 @@ from base.vo.subcategory_vo import SubcategoryVO
 
 logger = get_logger()
 
+
 class SubcategoryService:
     @staticmethod
     def insert_subcategory_service(subcategory_dto: SubcategoryDTO, session):
@@ -26,7 +27,9 @@ class SubcategoryService:
             subcategory_vo.modified_at = get_current_timestamp()
             result = SubcategoryDAO.insert_subcategory_dao(subcategory_vo, session)
 
-            logger.info("Subcategory inserted successfully: %s", subcategory_vo.subcategory_name)
+            logger.info(
+                "Subcategory inserted successfully: %s", subcategory_vo.subcategory_name
+            )
             return AppServices.app_response(
                 HttpStatusCodeEnum.CREATED.value,
                 ResponseMessageEnum.INSERT_DATA.value,
@@ -54,7 +57,7 @@ class SubcategoryService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    def delete_subcategory_service(id: int, session):
+    def delete_subcategory_service(id, session):
         """Soft delete a subcategory by ID."""
         try:
             result = SubcategoryDAO.delete_subcategory_dao(id, session)
@@ -114,9 +117,13 @@ class SubcategoryService:
                 )
 
             subcategory_vo.subcategory_name = subcategory_dto.subcategory_name
-            subcategory_vo.subcategory_description = subcategory_dto.subcategory_description
+            subcategory_vo.subcategory_description = (
+                subcategory_dto.subcategory_description
+            )
             subcategory_vo.modified_at = get_current_timestamp()
-            updated_subcategory = SubcategoryDAO.update_subcategory_dao(subcategory_vo, session)
+            updated_subcategory = SubcategoryDAO.update_subcategory_dao(
+                subcategory_vo, session
+            )
 
             logger.info("Subcategory updated successfully: ID %d", id)
             return AppServices.app_response(

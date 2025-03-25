@@ -2,9 +2,12 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
+from base.db.database import Base
+from base.vo.category_vo import CategoryVO
+from base.vo.subcategory_vo import SubcategoryVO
+from base.vo.product_vo import ProductVO
 
 from alembic import context
-from base.db.database import Base  # Import your SQLAlchemy Base
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

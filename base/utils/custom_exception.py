@@ -1,8 +1,7 @@
-from django.shortcuts import render
-
 # your enums
 import logging
 import sys
+
 from django.db.utils import IntegrityError
 
 from base.custom_enum.http_enum import ResponseMessageEnum, HttpStatusCodeEnum
@@ -55,9 +54,7 @@ class AppServices:
 
         if is_raise:
             # Render custom error page when is_raise is True
-            return render(
-                None,
-                "error/custom_error_page.html",
+            return (
                 {
                     "message": user_message,
                     "status_code": HttpStatusCodeEnum.INTERNAL_SERVER_ERROR.value,
@@ -65,11 +62,7 @@ class AppServices:
             )
 
         # If not is_raise, render error page with details
-        return render(
-            None,
-            "error/custom_error_page.html",
-            {
-                "message": user_message,  # Provide a user-friendly error message
-                "status_code": HttpStatusCodeEnum.INTERNAL_SERVER_ERROR.value,
-            },
-        )
+        return {
+            "message": user_message,
+            "status_code": HttpStatusCodeEnum.INTERNAL_SERVER_ERROR.value,
+        }

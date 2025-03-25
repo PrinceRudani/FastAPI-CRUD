@@ -1,28 +1,34 @@
 from base.client.mysql_common.mysql_common_query import MysqlCommonQuery
 from base.vo.category_vo import CategoryVO
 
+
 class CategoryDAO:
     @staticmethod
-    def insert_category_dao(category_vo: CategoryVO, session):
+    def insert_category_dao(category_vo):
         """Call common insert method for category."""
-        return MysqlCommonQuery.insert_query(category_vo, session)
+        category_data = MysqlCommonQuery.insert_query(category_vo)
+        return category_data
 
     @staticmethod
-    def get_all_categories_dao(session):
+    def get_all_categories_dao():
         """Call common get_all method for category."""
-        return MysqlCommonQuery.get_all_query(CategoryVO, session)
+        category_data = MysqlCommonQuery.get_all_query(CategoryVO)
+        return category_data
 
     @staticmethod
-    def delete_category_dao(session, id: int):
+    def delete_category_dao(id: int):
         """Call common delete method for category."""
-        return MysqlCommonQuery.soft_delete_query(CategoryVO, id, session)
+        category_data = MysqlCommonQuery.soft_delete_query(CategoryVO, id)
+        return category_data
 
     @staticmethod
-    def get_category_by_id_dao(session, id: int):
+    def get_category_by_id_dao(id: int):
         """Fetch a single category by ID (excluding soft-deleted records)."""
-        return MysqlCommonQuery.get_by_id_query(CategoryVO, id, session)
+        category_data = MysqlCommonQuery.get_by_id_query(CategoryVO, id)
+        return category_data
 
     @staticmethod
-    def update_category_dao(category: CategoryVO, session):
+    def update_category_dao(category_vo):
         """Update an existing category."""
-        return MysqlCommonQuery.update_query(category, session)
+        category_data = MysqlCommonQuery.update_query(category_vo)
+        return category_data

@@ -7,6 +7,11 @@ class CategoryDTO(BaseModel):
     category_description: str
 
 
+class UpdateCategoryDTO(BaseModel):
+    id: int
+    category_name: str
+    category_description: str
+
 class CategoryResponse(CategoryDTO):
     id: int
     is_deleted: bool
