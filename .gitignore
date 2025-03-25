@@ -49,3 +49,4 @@ dist/
 
 # Ignore local development files
 .local/config.ini
+config.ini
