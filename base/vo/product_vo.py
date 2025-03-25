@@ -1,6 +1,9 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 
-from base.db.database import Base
+from base.db.database import Base, Database
+
+database = Database()
+engine = database.get_db_connection()
 
 
 class ProductVO(Base):
@@ -9,12 +12,14 @@ class ProductVO(Base):
     id = Column(Integer, primary_key=True, index=True)
     product_category_id = Column(
         Integer,
-        ForeignKey("category_table.id", ondelete="CASCADE", onupdate="CASCADE"),
+        ForeignKey("category_table.id", ondelete="CASCADE",
+                   onupdate="CASCADE"),
         nullable=False,
     )
     product_subcategory_id = Column(
         Integer,
-        ForeignKey("subcategory_table.id", ondelete="CASCADE", onupdate="CASCADE"),
+        ForeignKey("subcategory_table.id", ondelete="CASCADE",
+                   onupdate="CASCADE"),
         nullable=False,
     )
 
@@ -28,3 +33,6 @@ class ProductVO(Base):
     is_deleted = Column(Boolean, default=False)
     created_at = Column(String(30))
     modified_at = Column(String(30))
+
+
+Base.metadata.create_all(engine)

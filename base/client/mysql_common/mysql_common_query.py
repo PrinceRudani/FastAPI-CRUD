@@ -20,7 +20,8 @@ class MysqlCommonQuery:
     def get_all_query(table_name):
         """Retrieve all non-deleted entities of a given model."""
         session = database.get_db_session(engine)
-        table_data = session.query(table_name).filter_by(is_deleted=False).all()
+        table_data = session.query(table_name).filter_by(
+            is_deleted=False).all()
         return table_data
 
     @staticmethod
@@ -28,7 +29,8 @@ class MysqlCommonQuery:
         """Perform a soft delete by setting `is_deleted=True`."""
         session = database.get_db_session(engine)
         table_data = (
-            session.query(table_name).filter_by(id=entity_id, is_deleted=False).first()
+            session.query(table_name).filter_by(id=entity_id,
+                                                is_deleted=False).first()
         )
         if table_data:
             table_data.is_deleted = True
@@ -41,7 +43,8 @@ class MysqlCommonQuery:
         """Retrieve an entity by its ID, excluding soft-deleted entities."""
         session = database.get_db_session(engine)
         table_data = (
-            session.query(table_name).filter_by(id=entity_id, is_deleted=False).first()
+            session.query(table_name).filter_by(id=entity_id,
+                                                is_deleted=False).first()
         )
         return table_data
 

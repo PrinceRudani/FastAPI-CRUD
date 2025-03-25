@@ -1,9 +1,9 @@
 import logging
 
-from fastapi import APIRouter, Depends
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, Response
 
-from base.dto.subcategory.subcategory_dto import SubcategoryDTO
+from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
+from base.dto.subcategory.subcategory_dto import SubcategoryDTO, UpdateSubcategoryDTO
 from base.service.subcategory.subcategory_service import SubcategoryService
 from base.utils.custom_exception import AppServices
 
@@ -21,10 +21,22 @@ subcategory_router = APIRouter(
 
 
 @subcategory_router.post("/insert")
-async def insert_subcategory_controller(subcategory: SubcategoryDTO):
+async def insert_subcategory_controller(subcategory_dto: SubcategoryDTO,
+                                        response: Response):
     try:
-        logger.info("Inserting new subcategory: %s", subcategory.subcategory_name)
-        return SubcategoryService.insert_subcategory_service(subcategory, db)
+        if not subcategory_dto:
+            response.status_code = HttpStatusCodeEnum.BAD_REQUEST
+            return AppServices.app_response(
+                HttpStatusCodeEnum.BAD_REQUEST.value,
+                ResponseMessageEnum.NOT_FOUND.value,
+                success=False,
+            )
+        logger.info("Inserting new subcategory: %s",
+                    subcategory_dto.subcategory_name)
+        result = SubcategoryService.insert_subcategory_service(
+            subcategory_dto)
+        return result
+
     except Exception as e:
         logger.error("Error inserting subcategory: %s", str(e))
         raise AppServices.handle_exception(e, is_raise=True)
@@ -34,7 +46,8 @@ async def insert_subcategory_controller(subcategory: SubcategoryDTO):
 async def view_subcategory_controller():
     try:
         logger.info("Fetching all subcategories")
-        return SubcategoryService.get_all_subcategories_service(db)
+        response_payload = SubcategoryService.get_all_subcategories_service()
+        return response_payload
     except Exception as e:
         logger.error("Error fetching subcategories: %s", str(e))
         raise AppServices.handle_exception(e, is_raise=True)
@@ -44,7 +57,8 @@ async def view_subcategory_controller():
 async def delete_subcategory_controller(id: int):
     try:
         logger.info("Deleting subcategory with ID: %d", id)
-        return SubcategoryService.delete_subcategory_service(id, db)
+        response_payload = SubcategoryService.delete_subcategory_service(id)
+        return response_payload
     except Exception as e:
         logger.error("Error deleting subcategory with ID %d: %s", id, str(e))
         raise AppServices.handle_exception(e, is_raise=True)
@@ -54,17 +68,19 @@ async def delete_subcategory_controller(id: int):
 async def get_subcategory_by_id_controller(id: int):
     try:
         logger.info("Fetching subcategory with ID: %d", id)
-        return SubcategoryService.get_subcategory_by_id_service(id, db)
+        response_payload = SubcategoryService.get_subcategory_by_id_service(id)
+        return response_payload
     except Exception as e:
         logger.error("Error fetching subcategory with ID %d: %s", id, str(e))
         raise AppServices.handle_exception(e, is_raise=True)
 
 
 @subcategory_router.put("/update/{id}")
-async def update_subcategory_controller(id: int, subcategory: SubcategoryDTO):
+async def update_subcategory_controller(update_subcategory_dto: UpdateSubcategoryDTO):
     try:
-        logger.info("Updating subcategory with ID: %d", id)
-        return SubcategoryService.update_subcategory_service(id, subcategory, db)
+        logger.info("Updating subcategory with ID")
+        response_payload = SubcategoryService.update_subcategory_service(update_subcategory_dto)
+        return response_payload
     except Exception as e:
-        logger.error("Error updating subcategory with ID %d: %s", id, str(e))
+        logger.error("Error updating subcategory with ")
         raise AppServices.handle_exception(e, is_raise=True)

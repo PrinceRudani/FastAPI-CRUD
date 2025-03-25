@@ -16,13 +16,13 @@ class CategoryDAO:
         return category_data
 
     @staticmethod
-    def delete_category_dao(id: int):
+    def delete_category_dao(id):
         """Call common delete method for category."""
         category_data = MysqlCommonQuery.soft_delete_query(CategoryVO, id)
         return category_data
 
     @staticmethod
-    def get_category_by_id_dao(id: int):
+    def get_category_by_id_dao(id):
         """Fetch a single category by ID (excluding soft-deleted records)."""
         category_data = MysqlCommonQuery.get_by_id_query(CategoryVO, id)
         return category_data

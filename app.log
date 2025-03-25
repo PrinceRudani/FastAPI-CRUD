@@ -3864,3 +3864,877 @@ sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate en
 
 2025-03-25 11:32:51,287 - category_controller.py - FastCRUD -  update_category_controller - INFO - Attempting to update category: ID 12, Name: prince
 
+2025-03-25 23:28:00,396 - category_controller.py - FastCRUD -  insert_category_controller - INFO - Attempting to insert new category: strddscdcing
+
+2025-03-25 23:28:00,418 - category_service.py - FastCRUD -  insert_category_service - INFO - Category inserted successfully: strddscdcing
+
+2025-03-25 23:28:06,292 - category_controller.py - FastCRUD -  view_category_controller - INFO - Response for verify_member is {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': [<base.vo.category_vo.CategoryVO object at 0x757217df3410>, <base.vo.category_vo.CategoryVO object at 0x757217df3490>, <base.vo.category_vo.CategoryVO object at 0x757217df3590>, <base.vo.category_vo.CategoryVO object at 0x757217df2b90>, <base.vo.category_vo.CategoryVO object at 0x757217df2dd0>, <base.vo.category_vo.CategoryVO object at 0x757217df30d0>, <base.vo.category_vo.CategoryVO object at 0x757217df3150>, <base.vo.category_vo.CategoryVO object at 0x757217df31d0>, <base.vo.category_vo.CategoryVO object at 0x757217df3010>, <base.vo.category_vo.CategoryVO object at 0x757217df3090>, <base.vo.category_vo.CategoryVO object at 0x757217df2e90>]}
+
+2025-03-25 23:28:24,977 - category_controller.py - FastCRUD -  get_category_by_id_controller - INFO - Fetching category details for ID: 6
+
+2025-03-25 23:28:24,980 - category_controller.py - FastCRUD -  get_category_by_id_controller - ERROR - Error fetching category details
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/fastcrud_backup/FastCRUD_backup_3_mar25/FastCRUD/base/api/controller/category/category_controller.py", line 73, in get_category_by_id_controller
+    logger.info("Category retrieved: %s", response_payload.category_name)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'category_name'
+2025-03-25 23:28:46,527 - category_service.py - FastCRUD -  delete_category_service - ERROR - Error deleting category
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/fastcrud_backup/FastCRUD_backup_3_mar25/FastCRUD/base/service/category/category_service.py", line 68, in delete_category_service
+    delete_category_data.is_deleted = True
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'is_deleted'
+2025-03-25 23:28:53,729 - category_controller.py - FastCRUD -  get_category_by_id_controller - INFO - Fetching category details for ID: 6
+
+2025-03-25 23:28:53,734 - category_controller.py - FastCRUD -  get_category_by_id_controller - ERROR - Error fetching category details
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/fastcrud_backup/FastCRUD_backup_3_mar25/FastCRUD/base/api/controller/category/category_controller.py", line 72, in get_category_by_id_controller
+    logger.info("Category retrieved: %s", response_payload.category_name)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'category_name'
+2025-03-25 23:29:32,569 - category_controller.py - FastCRUD -  get_category_by_id_controller - INFO - Fetching category details for ID: 6
+
+2025-03-25 23:34:12,768 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: strdfvdfving
+
+2025-03-25 23:36:28,314 - subcategory_service.py - FastCRUD -  insert_subcategory_service - WARNING - Attempt to insert an empty subcategory DTO
+
+2025-03-25 23:36:37,749 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: strdfvdfvcding
+
+2025-03-25 23:36:48,441 - subcategory_service.py - FastCRUD -  insert_subcategory_service - WARNING - Attempt to insert an empty subcategory DTO
+
+2025-03-25 23:37:12,771 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: strdccd dcsfvdfvcding
+
+2025-03-25 23:37:19,756 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'strdccd dcsfvdfvcding' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/fastcrud_backup/FastCRUD_backup_3_mar25/FastCRUD/base/service/subcategory/subcategory_service.py", line 38, in insert_subcategory_service
+    subcategory_insert_data = SubcategoryDAO.insert_subcategory_dao(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/fastcrud_backup/FastCRUD_backup_3_mar25/FastCRUD/base/dao/subcategory/subcategory_dao.py", line 9, in insert_subcategory_dao
+    subcategory_data = MysqlCommonQuery.insert_query(subcategory_vo)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/fastcrud_backup/FastCRUD_backup_3_mar25/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 15, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'strdccd dcsfvdfvcding' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+[SQL: INSERT INTO subcategory_table (subcategory_category_id, subcategory_name, subcategory_description, is_deleted, created_at, modified_at) VALUES (%(subcategory_category_id)s, %(subcategory_name)s, %(subcategory_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'subcategory_category_id': 2, 'subcategory_name': 'strdccd dcsfvdfvcding', 'subcategory_description': 'string', 'is_deleted': 0, 'created_at': 1742926039, 'modified_at': 1742926039}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-03-25 23:37:26,261 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: strdccdcsddcsfvdfvcding
+
+2025-03-25 23:42:16,643 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: strdcvsdcdcsddcsfvdfvcding
+
+2025-03-25 23:47:57,506 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: strdcvsdcdcsddcsfvvsddfvcding
+
+2025-03-25 23:48:33,067 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'strdcvsdcdcsddcsfvvsddfvcding' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/fastcrud_backup/FastCRUD_backup_3_mar25/FastCRUD/base/service/subcategory/subcategory_service.py", line 30, in insert_subcategory_service
+    subcategory_insert_data = SubcategoryDAO.insert_subcategory_dao(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/fastcrud_backup/FastCRUD_backup_3_mar25/FastCRUD/base/dao/subcategory/subcategory_dao.py", line 9, in insert_subcategory_dao
+    subcategory_data = MysqlCommonQuery.insert_query(subcategory_vo)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/fastcrud_backup/FastCRUD_backup_3_mar25/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 15, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'strdcvsdcdcsddcsfvvsddfvcding' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+[SQL: INSERT INTO subcategory_table (subcategory_category_id, subcategory_name, subcategory_description, is_deleted, created_at, modified_at) VALUES (%(subcategory_category_id)s, %(subcategory_name)s, %(subcategory_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'subcategory_category_id': 1, 'subcategory_name': 'strdcvsdcdcsddcsfvvsddfvcding', 'subcategory_description': 'string', 'is_deleted': 0, 'created_at': 1742926713, 'modified_at': 1742926713}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-03-25 23:48:59,185 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: strdcvsdcdcsdvdvddcsfvvsddfvcding
+
+2025-03-25 23:49:36,878 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: strdcvsdcdcsdvddfvdvddcsfvvsddfvcding
+
+2025-03-25 23:54:52,950 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: sfddvring
+
+2025-03-26 00:02:20,035 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashion
+
+2025-03-26 00:09:44,874 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashfvion
+
+2025-03-26 00:09:48,556 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashfvvfdion
+
+2025-03-26 00:09:51,960 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'fashfvvfdion' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 30, in insert_subcategory_service
+    subcategory_insert_data = SubcategoryDAO.insert_subcategory_dao(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/dao/subcategory/subcategory_dao.py", line 9, in insert_subcategory_dao
+    subcategory_data = MysqlCommonQuery.insert_query(subcategory_vo)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 15, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'fashfvvfdion' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+[SQL: INSERT INTO subcategory_table (subcategory_category_id, subcategory_name, subcategory_description, is_deleted, created_at, modified_at) VALUES (%(subcategory_category_id)s, %(subcategory_name)s, %(subcategory_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'subcategory_category_id': 6, 'subcategory_name': 'fashfvvfdion', 'subcategory_description': 'string', 'is_deleted': 0, 'created_at': 1742927991, 'modified_at': 1742927991}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-03-26 00:19:52,903 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashfvvdfdvdsfdion
+
+2025-03-26 00:19:58,668 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'fashfvvdfdvdsfdion' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 30, in insert_subcategory_service
+    subcategory_insert_data = SubcategoryDAO.insert_subcategory_dao(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/dao/subcategory/subcategory_dao.py", line 9, in insert_subcategory_dao
+    subcategory_data = MysqlCommonQuery.insert_query(subcategory_vo)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 15, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'fashfvvdfdvdsfdion' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+[SQL: INSERT INTO subcategory_table (subcategory_category_id, subcategory_name, subcategory_description, is_deleted, created_at, modified_at) VALUES (%(subcategory_category_id)s, %(subcategory_name)s, %(subcategory_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'subcategory_category_id': 1, 'subcategory_name': 'fashfvvdfdvdsfdion', 'subcategory_description': 'string', 'is_deleted': 0, 'created_at': 1742928598, 'modified_at': 1742928598}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-03-26 00:20:03,996 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashfvvdfdvddsfdion
+
+2025-03-26 00:22:58,300 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashfvvfeddfcdscdvddsfdion
+
+2025-03-26 00:23:22,869 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashfvvfeddfcdscddcwvddsfdion
+
+2025-03-26 00:24:12,864 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'fashfvvfeddfcdscddcwvddsfdion' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 30, in insert_subcategory_service
+    subcategory_insert_data = SubcategoryDAO.insert_subcategory_dao(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/dao/subcategory/subcategory_dao.py", line 9, in insert_subcategory_dao
+    subcategory_data = MysqlCommonQuery.insert_query(subcategory_vo)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 15, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'fashfvvfeddfcdscddcwvddsfdion' for key 'subcategory_table.ix_subcategory_table_subcategory_name'")
+[SQL: INSERT INTO subcategory_table (subcategory_category_id, subcategory_name, subcategory_description, is_deleted, created_at, modified_at) VALUES (%(subcategory_category_id)s, %(subcategory_name)s, %(subcategory_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'subcategory_category_id': 6, 'subcategory_name': 'fashfvvfeddfcdscddcwvddsfdion', 'subcategory_description': 'string', 'is_deleted': 0, 'created_at': 1742928852, 'modified_at': 1742928852}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-03-26 00:24:16,595 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashfvvfeddfcdsfcddcwvddsfdion
+
+2025-03-26 00:24:35,457 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`FASTCRUD_DB`.`subcategory_table`, CONSTRAINT `subcategory_table_ibfk_1` FOREIGN KEY (`subcategory_category_id`) REFERENCES `category_table` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 30, in insert_subcategory_service
+    subcategory_insert_data = SubcategoryDAO.insert_subcategory_dao(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/dao/subcategory/subcategory_dao.py", line 9, in insert_subcategory_dao
+    subcategory_data = MysqlCommonQuery.insert_query(subcategory_vo)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 15, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`FASTCRUD_DB`.`subcategory_table`, CONSTRAINT `subcategory_table_ibfk_1` FOREIGN KEY (`subcategory_category_id`) REFERENCES `category_table` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)')
+[SQL: INSERT INTO subcategory_table (subcategory_category_id, subcategory_name, subcategory_description, is_deleted, created_at, modified_at) VALUES (%(subcategory_category_id)s, %(subcategory_name)s, %(subcategory_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'subcategory_category_id': 0, 'subcategory_name': 'fashfvvfseddfcdsfcddcwvddsfdion', 'subcategory_description': 'string', 'is_deleted': 0, 'created_at': 1742928875, 'modified_at': 1742928875}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-03-26 00:24:43,846 - subcategory_service.py - FastCRUD -  insert_subcategory_service - ERROR - Error inserting subcategory
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`FASTCRUD_DB`.`subcategory_table`, CONSTRAINT `subcategory_table_ibfk_1` FOREIGN KEY (`subcategory_category_id`) REFERENCES `category_table` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/subcategory/subcategory_service.py", line 30, in insert_subcategory_service
+    subcategory_insert_data = SubcategoryDAO.insert_subcategory_dao(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/dao/subcategory/subcategory_dao.py", line 9, in insert_subcategory_dao
+    subcategory_data = MysqlCommonQuery.insert_query(subcategory_vo)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/FastCRUD/base/client/mysql_common/mysql_common_query.py", line 15, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`FASTCRUD_DB`.`subcategory_table`, CONSTRAINT `subcategory_table_ibfk_1` FOREIGN KEY (`subcategory_category_id`) REFERENCES `category_table` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)')
+[SQL: INSERT INTO subcategory_table (subcategory_category_id, subcategory_name, subcategory_description, is_deleted, created_at, modified_at) VALUES (%(subcategory_category_id)s, %(subcategory_name)s, %(subcategory_description)s, %(is_deleted)s, %(created_at)s, %(modified_at)s)]
+[parameters: {'subcategory_category_id': 233, 'subcategory_name': 'fashfvvfseddfcdsfcddcwdvddsfdion', 'subcategory_description': 'string', 'is_deleted': 0, 'created_at': 1742928883, 'modified_at': 1742928883}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-03-26 00:25:22,188 - category_service.py - FastCRUD -  delete_category_service - ERROR - Error deleting category
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/FastCRUD/base/service/category/category_service.py", line 68, in delete_category_service
+    delete_category_data.is_deleted = True
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'is_deleted'
+2025-03-26 00:25:38,817 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashfvvfsdeddfcdsfcddcwdvddsfdion
+
+2025-03-26 00:28:14,259 - subcategory_service.py - FastCRUD -  insert_subcategory_service - WARNING - Attempt to insert subcategory with deleted category ID: 2
+
+2025-03-26 00:29:14,202 - subcategory_service.py - FastCRUD -  insert_subcategory_service - WARNING - Attempt to insert subcategory with deleted category ID: 1
+
+2025-03-26 00:29:25,328 - subcategory_service.py - FastCRUD -  insert_subcategory_service - INFO - Subcategory inserted successfully: fashfvvfsdeddfscfcdsfcddcwdvddsfdion
+
+2025-03-26 00:29:39,629 - subcategory_service.py - FastCRUD -  get_all_subcategories_service - INFO - Fetched 15 subcategories
+
+2025-03-26 00:29:55,834 - subcategory_service.py - FastCRUD -  delete_subcategory_service - INFO - Subcategory deleted: ID 5026
+
+2025-03-26 00:30:11,177 - subcategory_service.py - FastCRUD -  get_subcategory_by_id_service - INFO - Subcategory retrieved: Laptops
+
+2025-03-26 00:36:53,600 - subcategory_service.py - FastCRUD -  update_subcategory_service - INFO - Subcategory updated successfully
+
