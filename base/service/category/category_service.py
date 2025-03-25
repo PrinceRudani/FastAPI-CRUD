@@ -41,9 +41,9 @@ class CategoryService:
     def delete_category_service(id: int):
         """Soft delete a category by ID."""
         try:
-            delete_dao_data = CategoryDAO.delete_category_dao(id)
-            delete_dao_data.is_deleted = True
-            return delete_dao_data
+            delete_data = CategoryDAO.delete_category_dao(id)
+            delete_data.is_deleted = True
+            return delete_data
 
         except Exception as exception:
             logger.exception("Error deleting category")
@@ -53,8 +53,8 @@ class CategoryService:
     def get_category_by_id_service(id: int):
         """Retrieve category details for editing."""
         try:
-            category = CategoryDAO.get_category_by_id_dao(id)
-            return category
+            get_category_detail = CategoryDAO.get_category_by_id_dao(id)
+            return get_category_detail
         except Exception as exception:
             logger.exception("Error retrieving category with ID %d", id)
             return AppServices.handle_exception(exception)
