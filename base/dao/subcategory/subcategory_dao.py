@@ -18,7 +18,7 @@ class SubcategoryDAO:
     @staticmethod
     def delete_subcategory_dao(id):
         """Call common delete method for subcategory."""
-        subcategory_data = MysqlCommonQuery.soft_delete_query(SubcategoryVO,id)
+        subcategory_data = MysqlCommonQuery.soft_delete_query(SubcategoryVO, id)
         return subcategory_data
 
     @staticmethod

@@ -22,11 +22,13 @@ class SubcategoryService:
                     success=False,
                 )
             category = CategoryDAO.get_category_by_id_dao(
-                subcategory_dto.subcategory_category_id)
+                subcategory_dto.subcategory_category_id
+            )
             if not category:
                 logger.warning(
                     "Attempt to insert subcategory with deleted category ID: %d",
-                    subcategory_dto.subcategory_category_id)
+                    subcategory_dto.subcategory_category_id,
+                )
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST.value,
                     "Cannot insert subcategory under a deleted category.",
@@ -34,16 +36,22 @@ class SubcategoryService:
                 )
 
             subcategory_vo = SubcategoryVO()
-            subcategory_vo.subcategory_category_id = subcategory_dto.subcategory_category_id
+            subcategory_vo.subcategory_category_id = (
+                subcategory_dto.subcategory_category_id
+            )
             subcategory_vo.subcategory_name = subcategory_dto.subcategory_name
-            subcategory_vo.subcategory_description = subcategory_dto.subcategory_description
+            subcategory_vo.subcategory_description = (
+                subcategory_dto.subcategory_description
+            )
             subcategory_vo.created_at = get_current_timestamp()
             subcategory_vo.modified_at = get_current_timestamp()
             subcategory_insert_data = SubcategoryDAO.insert_subcategory_dao(
-                subcategory_vo)
+                subcategory_vo
+            )
 
-            logger.info("Subcategory inserted successfully: %s",
-                        subcategory_vo.subcategory_name)
+            logger.info(
+                "Subcategory inserted successfully: %s", subcategory_vo.subcategory_name
+            )
             return AppServices.app_response(
                 HttpStatusCodeEnum.CREATED.value,
                 ResponseMessageEnum.INSERT_DATA.value,
@@ -58,10 +66,8 @@ class SubcategoryService:
     def get_all_subcategories_service():
         """Fetch all subcategories using SubcategoryDAO."""
         try:
-            get_all_subcategory_data = (
-                SubcategoryDAO.get_all_subcategories_dao())
-            logger.info("Fetched %d subcategories",
-                        len(get_all_subcategory_data))
+            get_all_subcategory_data = SubcategoryDAO.get_all_subcategories_dao()
+            logger.info("Fetched %d subcategories", len(get_all_subcategory_data))
             return AppServices.app_response(
                 HttpStatusCodeEnum.OK.value,
                 ResponseMessageEnum.GET_DATA.value,
@@ -92,8 +98,7 @@ class SubcategoryService:
     def get_subcategory_by_id_service(id: int):
         """Retrieve subcategory details for editing."""
         try:
-            get_subcategory_detail = (
-                SubcategoryDAO.get_subcategory_by_id_dao(id))
+            get_subcategory_detail = SubcategoryDAO.get_subcategory_by_id_dao(id)
             if not get_subcategory_detail:
                 logger.warning("Subcategory not found: ID %d", id)
                 return AppServices.app_response(
@@ -101,8 +106,9 @@ class SubcategoryService:
                     ResponseMessageEnum.NOT_FOUND.value,
                     success=False,
                 )
-            logger.info("Subcategory retrieved: %s",
-                        get_subcategory_detail.subcategory_name)
+            logger.info(
+                "Subcategory retrieved: %s", get_subcategory_detail.subcategory_name
+            )
             return AppServices.app_response(
                 HttpStatusCodeEnum.OK.value,
                 ResponseMessageEnum.GET_DATA.value,
@@ -119,9 +125,13 @@ class SubcategoryService:
         try:
             subcategory_vo = SubcategoryVO()
             subcategory_vo.id = update_subcategory_dto.id
-            subcategory_vo.subcategory_category_id = update_subcategory_dto.subcategory_category_id
+            subcategory_vo.subcategory_category_id = (
+                update_subcategory_dto.subcategory_category_id
+            )
             subcategory_vo.subcategory_name = update_subcategory_dto.subcategory_name
-            subcategory_vo.subcategory_description = update_subcategory_dto.subcategory_description
+            subcategory_vo.subcategory_description = (
+                update_subcategory_dto.subcategory_description
+            )
             subcategory_vo.modified_at = get_current_timestamp()
             updated_subcategory_data = SubcategoryDAO.update_subcategory_dao(
                 subcategory_vo

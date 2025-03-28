@@ -25,8 +25,6 @@ MAX_OVERFLOW = 0
 CONNECT_TIMEOUT = 3600
 PREPING = True
 
-Base = declarative_base()  # ✅ Define `Base` here only
-
 
 class Database:
     """
@@ -95,4 +93,7 @@ class Database:
             AppServices.handle_exception(exception, is_raise=True)
 
 
-Base.metadata.create_all(Database().get_db_connection())
+Base = declarative_base()
+database = Database()
+engine = database.get_db_connection()
+Base.metadata.create_all(engine)

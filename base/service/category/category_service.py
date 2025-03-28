@@ -23,11 +23,11 @@ class CategoryService:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST.value,
                     ResponseMessageEnum.NOT_FOUND.value,
-                    success=False,data={}
+                    success=False,
+                    data={},
                 )
 
-            logger.info("Category inserted successfully: %s",
-                        category_vo.category_name)
+            logger.info("Category inserted successfully: %s", category_vo.category_name)
             return AppServices.app_response(
                 HttpStatusCodeEnum.CREATED.value,
                 ResponseMessageEnum.INSERT_DATA.value,
@@ -47,7 +47,8 @@ class CategoryService:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST.value,
                     ResponseMessageEnum.NOT_FOUND.value,
-                    success=False,data={}
+                    success=False,
+                    data={},
                 )
 
             return AppServices.app_response(
@@ -71,12 +72,13 @@ class CategoryService:
                     HttpStatusCodeEnum.BAD_REQUEST.value,
                     ResponseMessageEnum.NOT_FOUND.value,
                     success=False,
-                    data={}
+                    data={},
                 )
             return AppServices.app_response(
                 HttpStatusCodeEnum.ACCEPTED.value,
                 ResponseMessageEnum.DELETE_DATA.value,
-                success=True,data=delete_category_data,
+                success=True,
+                data=delete_category_data,
             )
 
         except Exception as exception:
@@ -93,7 +95,7 @@ class CategoryService:
                     HttpStatusCodeEnum.BAD_REQUEST.value,
                     ResponseMessageEnum.NOT_FOUND.value,
                     success=False,
-                    data={}
+                    data={},
                 )
             return AppServices.app_response(
                 HttpStatusCodeEnum.ACCEPTED.value,
@@ -116,13 +118,13 @@ class CategoryService:
             category_vo.category_description = category_data.category_description
 
             category_vo.modified_at = get_current_timestamp()
-            updated_category_data = CategoryDAO.update_category_dao(
-                category_vo)
+            updated_category_data = CategoryDAO.update_category_dao(category_vo)
             if not updated_category_data:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST.value,
                     ResponseMessageEnum.NOT_FOUND.value,
-                    success=False,data={}
+                    success=False,
+                    data={},
                 )
             return AppServices.app_response(
                 HttpStatusCodeEnum.ACCEPTED.value,

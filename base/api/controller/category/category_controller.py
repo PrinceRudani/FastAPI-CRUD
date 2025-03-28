@@ -16,8 +16,7 @@ category_router = APIRouter(
 
 
 @category_router.post("/insert")
-async def insert_category_controller(category_dto: CategoryDTO,
-                                     response: Response):
+def insert_category_controller(category_dto: CategoryDTO, response: Response):
     try:
         if not category_dto:
             response.status_code = HttpStatusCodeEnum.BAD_REQUEST
@@ -26,8 +25,7 @@ async def insert_category_controller(category_dto: CategoryDTO,
                 ResponseMessageEnum.NOT_FOUND.value,
                 success=False,
             )
-        logger.info("Attempting to insert new category: %s",
-                    category_dto.category_name)
+        logger.info("Attempting to insert new category: %s", category_dto.category_name)
         result = CategoryService.insert_category_service(category_dto)
         return result
 
@@ -37,7 +35,7 @@ async def insert_category_controller(category_dto: CategoryDTO,
 
 
 @category_router.get("/all")
-async def view_category_controller(response: Response):
+def view_category_controller(response: Response):
     try:
         response_payload = CategoryService.get_all_categories_service()
         logger.info(f"Response for verify_member is {response_payload}")
@@ -48,7 +46,7 @@ async def view_category_controller(response: Response):
 
 
 @category_router.delete("/delete/{id}")
-async def delete_category_controller(id, response: Response):
+def delete_category_controller(id, response: Response):
     try:
         response_payload = CategoryService.delete_category_service(id)
         return response_payload
@@ -58,7 +56,7 @@ async def delete_category_controller(id, response: Response):
 
 
 @category_router.get("/get/{id}")
-async def get_category_by_id_controller(id: int):
+def get_category_by_id_controller(id: int):
     try:
         logger.info("Fetching category details for ID: %d", id)
         response_payload = CategoryService.get_category_by_id_service(id)
@@ -69,10 +67,9 @@ async def get_category_by_id_controller(id: int):
 
 
 @category_router.put("/update/{id}")
-async def update_category_controller(update_category_dto: UpdateCategoryDTO):
+def update_category_controller(update_category_dto: UpdateCategoryDTO):
     try:
-        response_payload = CategoryService.update_category_service(
-            update_category_dto)
+        response_payload = CategoryService.update_category_service(update_category_dto)
         return response_payload
     except Exception as exception:
         logger.exception("Error updating category")

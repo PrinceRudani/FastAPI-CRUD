@@ -12,12 +12,11 @@ class SubcategoryVO(Base):
     id = Column(Integer, primary_key=True, index=True)
     subcategory_category_id = Column(
         Integer,
-        ForeignKey("category_table.id", ondelete="CASCADE",
-                   onupdate="CASCADE"), nullable=False,
+        ForeignKey("category_table.id", ondelete="CASCADE", onupdate="CASCADE"),
+        nullable=False,
     )
-    print(subcategory_category_id)
-    subcategory_name = Column(String(50), unique=True, index=True,
-                              nullable=False)
+
+    subcategory_name = Column(String(50), unique=True, index=True, nullable=False)
     subcategory_description = Column(String(100))
     is_deleted = Column(Boolean, default=False)
     created_at = Column(String(30))

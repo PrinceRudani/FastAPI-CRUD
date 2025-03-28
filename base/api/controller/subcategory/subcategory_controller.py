@@ -21,8 +21,7 @@ subcategory_router = APIRouter(
 
 
 @subcategory_router.post("/insert")
-async def insert_subcategory_controller(subcategory_dto: SubcategoryDTO,
-                                        response: Response):
+def insert_subcategory_controller(subcategory_dto: SubcategoryDTO, response: Response):
     try:
         if not subcategory_dto:
             response.status_code = HttpStatusCodeEnum.BAD_REQUEST
@@ -31,10 +30,8 @@ async def insert_subcategory_controller(subcategory_dto: SubcategoryDTO,
                 ResponseMessageEnum.NOT_FOUND.value,
                 success=False,
             )
-        logger.info("Inserting new subcategory: %s",
-                    subcategory_dto.subcategory_name)
-        result = SubcategoryService.insert_subcategory_service(
-            subcategory_dto)
+        logger.info("Inserting new subcategory: %s", subcategory_dto.subcategory_name)
+        result = SubcategoryService.insert_subcategory_service(subcategory_dto)
         return result
 
     except Exception as e:
@@ -43,7 +40,7 @@ async def insert_subcategory_controller(subcategory_dto: SubcategoryDTO,
 
 
 @subcategory_router.get("/all")
-async def view_subcategory_controller():
+def view_subcategory_controller():
     try:
         logger.info("Fetching all subcategories")
         response_payload = SubcategoryService.get_all_subcategories_service()
@@ -54,7 +51,7 @@ async def view_subcategory_controller():
 
 
 @subcategory_router.delete("/delete/{id}")
-async def delete_subcategory_controller(id: int):
+def delete_subcategory_controller(id: int):
     try:
         logger.info("Deleting subcategory with ID: %d", id)
         response_payload = SubcategoryService.delete_subcategory_service(id)
@@ -65,7 +62,7 @@ async def delete_subcategory_controller(id: int):
 
 
 @subcategory_router.get("/get/{id}")
-async def get_subcategory_by_id_controller(id: int):
+def get_subcategory_by_id_controller(id: int):
     try:
         logger.info("Fetching subcategory with ID: %d", id)
         response_payload = SubcategoryService.get_subcategory_by_id_service(id)
@@ -76,10 +73,12 @@ async def get_subcategory_by_id_controller(id: int):
 
 
 @subcategory_router.put("/update/{id}")
-async def update_subcategory_controller(update_subcategory_dto: UpdateSubcategoryDTO):
+def update_subcategory_controller(update_subcategory_dto: UpdateSubcategoryDTO):
     try:
         logger.info("Updating subcategory with ID")
-        response_payload = SubcategoryService.update_subcategory_service(update_subcategory_dto)
+        response_payload = SubcategoryService.update_subcategory_service(
+            update_subcategory_dto
+        )
         return response_payload
     except Exception as e:
         logger.error("Error updating subcategory with ")
