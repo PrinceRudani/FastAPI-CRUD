@@ -30,6 +30,7 @@ class Constant:
     ROLE_USER = os.getenv("ROLE_USER")
 
     SECRET_KEY = os.getenv("SECRET_KEY")
+    API_KEY = os.getenv("API_KEY")
 
 
 constant = Constant()

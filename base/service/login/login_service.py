@@ -157,7 +157,8 @@ def login_required(required_roles=None):
                     **kwargs):
             token = request.headers.get("Authorization")
             if not token:
-                token = request.cookies.get("access_token")
+                raise HTTPException(status_code=401,
+                                    detail="Authorization token missing")
 
             try:
                 token = token.replace("Bearer ", "")

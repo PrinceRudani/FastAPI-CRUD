@@ -4,6 +4,7 @@ from base.api.controller.notification.notification_controller import \
     NotificationController
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
+from base.custom_enum.static_enum import StaticVariables
 from base.dto.login.login_dto import LoginDTO
 from base.service.login.login_service import LoginService
 from base.utils.custom_exception import AppServices
@@ -26,7 +27,7 @@ def user_login(login_dto: LoginDTO, response: Response):
 
         response_payload = LoginService.login_user(login_dto, response)
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject=" user login successfully",
             message=f"user login '{login_dto.login_username}'successfully ."
         )

@@ -1,5 +1,5 @@
-from fastapi import APIRouter, Request, Response
-
+from fastapi import APIRouter, Request, Response, Depends
+from base.middleware.api_key_validator import verify_api_key
 from base.api.controller.notification.notification_controller import \
     NotificationController
 from base.config.logger_config import get_logger
@@ -9,7 +9,6 @@ from base.dto.category.category_dto import CategoryDTO, UpdateCategoryDTO
 from base.service.category.category_service import CategoryService
 from base.service.login.login_service import login_required
 from base.utils.custom_exception import AppServices
-
 logger = get_logger()
 
 category_router = APIRouter(
@@ -19,7 +18,7 @@ category_router = APIRouter(
 )
 
 
-@category_router.post("/insert")
+@category_router.post("/insert", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def insert_category_controller(request: Request,
                                response: Response, category_dto: CategoryDTO):
@@ -36,7 +35,7 @@ def insert_category_controller(request: Request,
         result = CategoryService.insert_category_service(category_dto)
 
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject="New Category Inserted",
             message=f"Category '{category_dto.category_name}' was successfully added."
         )
@@ -48,7 +47,7 @@ def insert_category_controller(request: Request,
         return AppServices.handle_exception(exception)
 
 
-@category_router.get("/all")
+@category_router.get("/all", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def view_category_controller(request: Request, response: Response):
     try:
@@ -60,14 +59,14 @@ def view_category_controller(request: Request, response: Response):
         return AppServices.handle_exception(exception)
 
 
-@category_router.delete("/delete/{id}")
+@category_router.delete("/delete/{id}", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def delete_category_controller(request: Request, response: Response, id):
     try:
         response_payload = CategoryService.delete_category_service(id)
         print("respomse>>>>>>>>>>>", response_payload)
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject=" Category deleted successfully",
             message=f"Category '{id}' was successfully deleted."
         )
@@ -78,7 +77,7 @@ def delete_category_controller(request: Request, response: Response, id):
         return AppServices.handle_exception(exception)
 
 
-@category_router.get("/get/{id}")
+@category_router.get("/get/{id}", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def get_category_by_id_controller(request: Request, response: Response,
                                   id: int):
@@ -87,7 +86,7 @@ def get_category_by_id_controller(request: Request, response: Response,
         logger.info("Fetching category details for ID: %d", id)
         response_payload = CategoryService.get_category_by_id_service(id)
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject=" Category fetched successfully",
             message=f"Category '{id}' was successfully fetched."
         )
@@ -98,7 +97,7 @@ def get_category_by_id_controller(request: Request, response: Response,
         return AppServices.handle_exception(exception)
 
 
-@category_router.put("/update/{id}")
+@category_router.put("/update/{id}", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def update_category_controller(request: Request, response: Response,
                                update_category_dto: UpdateCategoryDTO):
@@ -106,7 +105,7 @@ def update_category_controller(request: Request, response: Response,
         response_payload = CategoryService.update_category_service(
             update_category_dto)
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject=" Category updated successfully",
             message=f"Category '{id}' was successfully updated."
         )

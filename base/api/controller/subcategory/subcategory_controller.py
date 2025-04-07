@@ -1,6 +1,6 @@
 import logging
 
-from fastapi import APIRouter, Response, Request
+from fastapi import APIRouter, Response, Request, Depends
 
 from base.api.controller.notification.notification_controller import \
     NotificationController
@@ -8,6 +8,7 @@ from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.custom_enum.static_enum import StaticVariables
 from base.dto.subcategory.subcategory_dto import SubcategoryDTO, \
     UpdateSubcategoryDTO
+from base.middleware.api_key_validator import verify_api_key
 from base.service.login.login_service import login_required
 from base.service.subcategory.subcategory_service import SubcategoryService
 from base.utils.custom_exception import AppServices
@@ -25,7 +26,7 @@ subcategory_router = APIRouter(
 )
 
 
-@subcategory_router.post("/insert")
+@subcategory_router.post("/insert", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def insert_subcategory_controller(request: Request, response: Response,
                                   subcategory_dto:
@@ -39,7 +40,7 @@ def insert_subcategory_controller(request: Request, response: Response,
                 success=False,
             )
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject=" Subcategory updated successfully",
             message=f"Subcategory '{subcategory_dto.subcategory_name}' was successfully "
                     f"updated."
@@ -54,9 +55,9 @@ def insert_subcategory_controller(request: Request, response: Response,
         raise AppServices.handle_exception(e, is_raise=True)
 
 
-@subcategory_router.get("/all")
+@subcategory_router.get("/all", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
-def view_subcategory_controller(request: Request,response:Response):
+def view_subcategory_controller(request: Request, response: Response):
     try:
         logger.info("Fetching all subcategories")
         response_payload = SubcategoryService.get_all_subcategories_service()
@@ -67,7 +68,8 @@ def view_subcategory_controller(request: Request,response:Response):
         raise AppServices.handle_exception(e, is_raise=True)
 
 
-@subcategory_router.delete("/delete/{id}")
+@subcategory_router.delete("/delete/{id}",
+                           dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def delete_subcategory_controller(request: Request, response: Response,
                                   id: int):
@@ -75,7 +77,7 @@ def delete_subcategory_controller(request: Request, response: Response,
         logger.info("Deleting subcategory with ID: %d", id)
         response_payload = SubcategoryService.delete_subcategory_service(id)
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject=" Subcategory deleted successfully",
             message=f"Subcategory '{id}' was successfully deleted."
         )
@@ -85,7 +87,7 @@ def delete_subcategory_controller(request: Request, response: Response,
         raise AppServices.handle_exception(e, is_raise=True)
 
 
-@subcategory_router.get("/get/{id}")
+@subcategory_router.get("/get/{id}", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def get_subcategory_by_id_controller(request: Request, response: Response,
                                      id: (int)):
@@ -93,7 +95,7 @@ def get_subcategory_by_id_controller(request: Request, response: Response,
         logger.info("Fetching subcategory with ID: %d", id)
         response_payload = SubcategoryService.get_subcategory_by_id_service(id)
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject=" Subcategory fetched successfully",
             message=f"Subcategory '{id}' was successfully fetched."
         )
@@ -104,7 +106,7 @@ def get_subcategory_by_id_controller(request: Request, response: Response,
         raise AppServices.handle_exception(exception, is_raise=True)
 
 
-@subcategory_router.put("/update/{id}")
+@subcategory_router.put("/update/{id}", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def update_subcategory_controller(request: Request, response: Response,
                                   update_subcategory_dto: UpdateSubcategoryDTO):
@@ -114,7 +116,7 @@ def update_subcategory_controller(request: Request, response: Response,
             update_subcategory_dto
         )
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject=" Subcategory update successfully",
             message=f"Subcategory '{id}' was successfully update."
         )

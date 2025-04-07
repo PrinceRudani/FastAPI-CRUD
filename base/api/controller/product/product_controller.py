@@ -1,9 +1,11 @@
-from fastapi import APIRouter, UploadFile, File, Path, Form, Request, Response
+from fastapi import (APIRouter, UploadFile, File, Path, Form, Request,
+                     Response, Depends)
 
 from base.api.controller.notification.notification_controller import \
     NotificationController
 from base.config.logger_config import get_logger
 from base.custom_enum.static_enum import StaticVariables
+from base.middleware.api_key_validator import verify_api_key
 from base.service.login.login_service import login_required
 from base.service.product.product_service import ProductService
 from base.utils.custom_exception import AppServices
@@ -17,7 +19,7 @@ product_router = APIRouter(
 )
 
 
-@product_router.post("/insert")
+@product_router.post("/insert", dependencies=[Depends(verify_api_key)])
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE])
 def insert_product_controller(
         request: Request, response: Response,
@@ -40,7 +42,7 @@ def insert_product_controller(
             product_images,
         )
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject="New Product Inserted",
             message=f"Product '{product_name}' was successfully added."
         )
@@ -51,17 +53,17 @@ def insert_product_controller(
         return AppServices.handle_exception(exception)
 
 
-@product_router.get("/view")
+@product_router.get("/view", dependencies=[Depends(verify_api_key)])
 def get_all_products_controller():
     response_payload = ProductService.get_all_products_service()  # the
     return response_payload
     # coroutine
 
 
-@product_router.get("/view/{id}")
+@product_router.get("/view/{id}", dependencies=[Depends(verify_api_key)])
 def get_product_by_id_controller(response: Response, id: int):
     email_sent = NotificationController.send_email_notification(
-        to_email="pinsurudani2003@gmail.com",
+        to_email=StaticVariables.RECEIVER_EMAIL,
         subject=" Product fetched successfully",
         message=f"Product '{id}' was successfully fetched."
     )
@@ -69,10 +71,10 @@ def get_product_by_id_controller(response: Response, id: int):
     return response_payload, email_sent
 
 
-@product_router.delete("/delete/{id}")
+@product_router.delete("/delete/{id}", dependencies=[Depends(verify_api_key)])
 def delete_product_controller(response: Response, id: int):
     email_sent = NotificationController.send_email_notification(
-        to_email="pinsurudani2003@gmail.com",
+        to_email=StaticVariables.RECEIVER_EMAIL,
         subject=" Product deleted successfully",
         message=f"Product '{id}' was successfully deleted."
     )
@@ -80,7 +82,7 @@ def delete_product_controller(response: Response, id: int):
     return response_payload, email_sent
 
 
-@product_router.put("/update/{id}")
+@product_router.put("/update/{id}", dependencies=[Depends(verify_api_key)])
 def update_product_controller(response: Response,
                               id: int = Path(..., title="Product ID"),
                               product_category_id: int = Form(...),
@@ -103,7 +105,7 @@ def update_product_controller(response: Response,
             product_images,
         )
         email_sent = NotificationController.send_email_notification(
-            to_email="pinsurudani2003@gmail.com",
+            to_email=StaticVariables.RECEIVER_EMAIL,
             subject=" Product updated successfully",
             message=f"Product '{id}' was successfully updated."
         )

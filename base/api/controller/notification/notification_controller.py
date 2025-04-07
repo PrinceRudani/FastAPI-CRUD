@@ -4,6 +4,7 @@ from email.mime.text import MIMEText
 
 from param.ipython import message
 
+from base.custom_enum.static_enum import StaticVariables
 from base.utils.custom_exception import AppServices
 
 
@@ -11,7 +12,7 @@ class NotificationController:
 
     @staticmethod
     def send_email_notification(to_email, subject, message):
-        sender_email = "princerudani2003@gmail.com"
+        sender_email = StaticVariables.SENDER_EMAIL
         sender_password = "scau jsvu vjcp lxex"
 
         msg = MIMEMultipart()
