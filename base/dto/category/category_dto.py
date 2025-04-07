@@ -13,9 +13,5 @@ class UpdateCategoryDTO(BaseModel):
     category_description: str
 
 
-class CategoryResponse(CategoryDTO):
-    id: int
-    is_deleted: bool
-
     class Config:
         from_attributes = True

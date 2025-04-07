@@ -23,4 +23,4 @@ class SubcategoryVO(Base):
     modified_at = Column(String(30))
 
 
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)

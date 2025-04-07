@@ -7,16 +7,14 @@ logger = get_logger()
 
 UPLOAD_DIR = "static/product_image/"
 
-
 class ProductImageUploader:
     @staticmethod
-    async def save_image(images):
-        """Save uploaded image(s) and return its name and path."""
+    def save_image(images):
+        """Save uploaded image(s) with original names and return their names and paths."""
         try:
             file_paths = []
             file_names = []
 
-            # Ensure images is a list
             if not isinstance(images, list):
                 images = [images]
 
@@ -24,13 +22,17 @@ class ProductImageUploader:
                 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
                 for image in images:
-                    image_path = os.path.join(UPLOAD_DIR, image.filename)
-                    print("image path>>>>>>>>>.", image_path)
+                    # Extract original filename without any FastAPI prefix
+                    original_filename = os.path.basename(image.filename)  # 🔥 Ensures only the filename remains
+                    image_path = os.path.join(UPLOAD_DIR, original_filename)
+
+                    print("Saving image to >>>", image_path)
 
                     with open(image_path, "wb") as buffer:
-                        buffer.write(await image.read())
-                        file_paths.append(image_path)
-                        file_names.append(image.filename)
+                        buffer.write(image.file.read())  # ✅ Fix from previous issue
+
+                    file_paths.append(image_path)
+                    file_names.append(original_filename)  # ✅ Store only clean filename
 
                 return file_names, file_paths
 

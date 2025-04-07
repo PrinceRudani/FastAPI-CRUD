@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
 
 class RegisterDTO(BaseModel):
@@ -6,19 +6,7 @@ class RegisterDTO(BaseModel):
     register_password: str
     register_firstname: str
     register_lastname: str
-    register_email: EmailStr
-    register_gender: str
-    register_phone: str
-
-
-class UpdateRegisterDTO(BaseModel):
-    id: int
-    register_username: str
-    register_password: str
-    register_login_vo: int
-    register_firstname: str
-    register_lastname: str
-    register_email: EmailStr
+    register_email: str
     register_gender: str
     register_phone: str
 

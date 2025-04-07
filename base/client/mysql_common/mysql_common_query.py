@@ -20,7 +20,8 @@ class MysqlCommonQuery:
     def get_all_query(table_name):
         """Retrieve all non-deleted entities of a given model."""
         session = database.get_db_session(engine)
-        table_data = session.query(table_name).filter_by(is_deleted=False).all()
+        table_data = session.query(table_name).filter_by(
+            is_deleted=False).all()
         return table_data
 
     @staticmethod
@@ -28,11 +29,12 @@ class MysqlCommonQuery:
         """Perform a soft delete by setting `is_deleted=True`."""
         session = database.get_db_session(engine)
         table_data = (
-            session.query(table_name).filter_by(id=entity_id, is_deleted=False).first()
+            session.query(table_name).filter_by(id=entity_id,
+                                                is_deleted=False).first()
         )
-        if table_data:
-            table_data.is_deleted = True
-            session.commit()
+        print(f"table_data-{table_data}")
+        table_data.is_deleted = True
+        session.commit()
         return table_data
 
     # #
@@ -41,7 +43,8 @@ class MysqlCommonQuery:
         """Retrieve an entity by its ID, excluding soft-deleted entities."""
         session = database.get_db_session(engine)
         table_data = (
-            session.query(table_name).filter_by(id=entity_id, is_deleted=False).first()
+            session.query(table_name).filter_by(id=entity_id,
+                                                is_deleted=False).first()
         )
         return table_data
 
@@ -55,11 +58,29 @@ class MysqlCommonQuery:
         session.close()
         return update_record
 
-    # check login id
+
     @staticmethod
-    def get_user_by_username(table_name, username):
-        """Retrieve the user details using username."""
+    def get_record_by_field(model, field_name, value):
         session = database.get_db_session(engine)
-        user_data = session.query(table_name).filter_by(login_username=username).first()
+        user_data = session.query(model).filter(
+                getattr(model, field_name) == value).first()
+        print(">>>>user_data", user_data)
         session.close()
         return user_data
+
+    @staticmethod
+    def update_login_status(model_class, model):
+        print(f"Updating login status for user ID: {model.id}")
+        session = database.get_db_session(engine)
+
+        existing_user = session.query(model_class).filter_by(
+            id=model.id).first()
+
+        existing_user.login_status = model.login_status
+        session.commit()
+
+        session.close()
+
+    @staticmethod
+    def logout_query():
+        session = database.get_db_session(engine)

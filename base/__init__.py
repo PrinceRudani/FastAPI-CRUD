@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from base.utils.constant import settings
+from base.utils.constant import constant
 
-SECRET_KEY = settings.SECRET_KEY
+SECRET_KEY = constant.SECRET_KEY
 
 
 def get_app() -> FastAPI:

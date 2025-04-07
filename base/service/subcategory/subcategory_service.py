@@ -123,26 +123,57 @@ class SubcategoryService:
     def update_subcategory_service(update_subcategory_dto):
         """Update subcategory details."""
         try:
+            # Validate ID
+            if not update_subcategory_dto.id:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    # Use generic NOT_FOUND message
+                    success=False,
+                    data={},
+                )
+
+            # Check if subcategory exists in DB before updating
+            existing_subcategory = SubcategoryDAO.get_subcategory_by_id_dao(
+                update_subcategory_dto.id)
+            if not existing_subcategory:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    success=False,
+                    data={},
+                )
+
+            # Prepare VO for update
             subcategory_vo = SubcategoryVO()
             subcategory_vo.id = update_subcategory_dto.id
-            subcategory_vo.subcategory_category_id = (
-                update_subcategory_dto.subcategory_category_id
-            )
+            subcategory_vo.subcategory_category_id = update_subcategory_dto.subcategory_category_id
             subcategory_vo.subcategory_name = update_subcategory_dto.subcategory_name
-            subcategory_vo.subcategory_description = (
-                update_subcategory_dto.subcategory_description
-            )
+            subcategory_vo.subcategory_description = update_subcategory_dto.subcategory_description
             subcategory_vo.modified_at = get_current_timestamp()
-            updated_subcategory_data = SubcategoryDAO.update_subcategory_dao(
-                subcategory_vo
-            )
 
-            logger.info("Subcategory updated successfully")
+            # Perform update
+            updated_subcategory_data = SubcategoryDAO.update_subcategory_dao(
+                subcategory_vo)
+            if not updated_subcategory_data:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    ResponseMessageEnum.UPDATE_FAILED.value,
+                    # Use specific update failure message
+                    success=False,
+                    data={},
+                )
+
+            logger.info("Subcategory updated successfully, ID: %s",
+                        update_subcategory_dto.id)
             return AppServices.app_response(
                 HttpStatusCodeEnum.OK.value,
                 ResponseMessageEnum.UPDATE_DATA.value,
                 success=True,
                 data=updated_subcategory_data,
             )
+
         except Exception as exception:
+            logger.exception("Error updating subcategory with ID %s",
+                             update_subcategory_dto.id)
             return AppServices.handle_exception(exception)

@@ -27,6 +27,7 @@ class CategoryService:
                     data={},
                 )
 
+
             logger.info("Category inserted successfully: %s", category_vo.category_name)
             return AppServices.app_response(
                 HttpStatusCodeEnum.CREATED.value,
@@ -111,21 +112,44 @@ class CategoryService:
     def update_category_service(category_data):
         """Update category details."""
         try:
+            if not category_data.id:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND.value,
+                    ResponseMessageEnum.USER_NOT_FOUND.value,
+                    success=False,  # Should be False because it's an error
+                    data={},
+                )
 
+            # Fetch the existing category from DB
+            existing_category = CategoryDAO.get_category_by_id_dao(
+                category_data.id)
+            if not existing_category:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    # Use correct response message
+                    success=False,
+                    data={},
+                )
+
+            # Update category details
             category_vo = CategoryVO()
             category_vo.id = category_data.id
             category_vo.category_name = category_data.category_name
             category_vo.category_description = category_data.category_description
-
             category_vo.modified_at = get_current_timestamp()
-            updated_category_data = CategoryDAO.update_category_dao(category_vo)
+
+            updated_category_data = CategoryDAO.update_category_dao(
+                category_vo)
             if not updated_category_data:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST.value,
-                    ResponseMessageEnum.NOT_FOUND.value,
+                    ResponseMessageEnum.USER_NOT_FOUND.value,
+                    # Use a specific message for update failure
                     success=False,
                     data={},
                 )
+
             return AppServices.app_response(
                 HttpStatusCodeEnum.ACCEPTED.value,
                 ResponseMessageEnum.UPDATE_DATA.value,
@@ -134,5 +158,6 @@ class CategoryService:
             )
 
         except Exception as exception:
-            logger.exception("Error updating category with ID %d", id)
+            logger.exception("Error updating category with ID %s",
+                             category_data.id)
             return AppServices.handle_exception(exception)

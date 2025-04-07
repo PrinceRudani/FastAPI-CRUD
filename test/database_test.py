@@ -1,9 +1,2 @@
-from sqlalchemy import create_engine, MetaData
-from base.db.database import DATABASE_URL  # Adjust this path based on your project
+list = [1,1,2,2,3,3,4,4,5,6,6,7,7]
 
-engine = create_engine(DATABASE_URL)
-metadata = MetaData()
-metadata.reflect(bind=engine)
-metadata.drop_all(bind=engine)
-
-print("All tables dropped successfully!")

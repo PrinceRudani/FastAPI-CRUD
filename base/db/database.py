@@ -8,14 +8,14 @@ Designation: Software Engineer
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-from base.utils.constant import settings
+from base.utils.constant import constant
 from base.utils.custom_exception import AppServices
 
-DB_HOST = settings.DB_HOST
-DB_USERNAME = settings.DB_USERNAME
-DB_PASSWORD = settings.DB_PASSWORD
-DB_PORT = settings.DB_PORT
-DB_NAME = settings.DB_NAME
+DB_HOST = constant.DB_HOST
+DB_USERNAME = constant.DB_USERNAME
+DB_PASSWORD = constant.DB_PASSWORD
+DB_PORT = constant.DB_PORT
+DB_NAME = constant.DB_NAME
 
 MYSQL_URL = f"mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?charset=utf8"
 POOL_SIZE = 10

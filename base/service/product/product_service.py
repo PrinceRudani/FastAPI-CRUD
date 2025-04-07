@@ -15,41 +15,40 @@ UPLOAD_DIR = "static/product_image/"
 
 
 class ProductService:
-
     @staticmethod
-    async def insert_product_service(
-        product_category_id,
-        product_subcategory_id,
-        product_name,
-        product_description,
-        product_price,
-        product_quantity,
-        product_image,
+    def insert_product_service(
+            product_category_id,
+            product_subcategory_id,
+            product_name,
+            product_description,
+            product_price,
+            product_quantity,
+            product_images,
     ):
         try:
+            # Validate Category and Subcategory
             category = CategoryDAO.get_category_by_id_dao(product_category_id)
             subcategory = SubcategoryDAO.get_subcategory_by_id_dao(
-                product_subcategory_id
-            )
+                product_subcategory_id)
 
             if not category or category.is_deleted:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST,
-                    ResponseMessageEnum.USER_LOGIN_FAILED,
+                    ResponseMessageEnum.NOT_FOUND,
                     success=False,
                     data={},
                 )
             if not subcategory or subcategory.is_deleted:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST,
-                    ResponseMessageEnum.USER_LOGIN_FAILED,
+                    ResponseMessageEnum.NOT_FOUND,
                     success=False,
                     data={},
                 )
 
-            image_name, image_path = await ProductImageUploader.save_image(
-                product_image
-            )
+            # Save images safely
+            image_name, image_path = ProductImageUploader.save_image(
+                product_images)
 
             product_data = {
                 "product_category_id": product_category_id,
@@ -65,8 +64,8 @@ class ProductService:
                 "modified_at": get_current_timestamp(),
             }
 
+            # Insert product
             product_vo = ProductVO(**product_data)
-            print("product_vo", product_vo)
             product_insert_data = ProductDAO.insert_product_dao(product_vo)
 
             return AppServices.app_response(
@@ -81,7 +80,7 @@ class ProductService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    async def get_all_products_service():
+    def get_all_products_service():
         """Retrieve all products."""
         try:
             products = ProductDAO.get_all_product_dao()
@@ -127,15 +126,15 @@ class ProductService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    async def update_product_service(
-        id,
-        category_id,
-        subcategory_id,
-        name,
-        description,
-        price,
-        quantity,
-        image: UploadFile,
+    def update_product_service(
+            id,
+            product_category_id,
+            product_subcategory_id,
+            product_name,
+            product_description,
+            product_price,
+            product_quantity,
+            product_images: UploadFile,
     ):
         """Update product, replacing image only if a new one is uploaded."""
         try:
@@ -149,11 +148,11 @@ class ProductService:
                 )
 
             # Validate Category
-            category = CategoryDAO.get_category_by_id_dao(category_id)
+            category = CategoryDAO.get_category_by_id_dao(product_category_id)
             if not category or getattr(category, "is_deleted", False):
                 logger.info(
                     "Attempt to update product with deleted or non-existent category ID: %d",
-                    category_id,
+                    product_category_id,
                 )
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST.value,
@@ -162,11 +161,13 @@ class ProductService:
                 )
 
             # Validate Subcategory (Fixing NoneType issue)
-            subcategory = SubcategoryDAO.get_subcategory_by_id_dao(subcategory_id)
-            if subcategory is None or getattr(subcategory, "is_deleted", False):
+            subcategory = SubcategoryDAO.get_subcategory_by_id_dao(
+                product_subcategory_id)
+            if subcategory is None or getattr(subcategory, "is_deleted",
+                                              False):
                 logger.info(
                     "Attempt to update product with deleted or non-existent subcategory ID: %d",
-                    subcategory_id,
+                    product_subcategory_id,
                 )
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST.value,
@@ -178,21 +179,22 @@ class ProductService:
             image_name = existing_product.product_image_names
             image_path = existing_product.product_image_paths
 
-            if image:
-                image_name, image_path = await ProductImageUploader.save_image(image)
+            if product_images:
+                image_name, image_path = (
+                    ProductImageUploader.save_image(product_images))
                 print(">>>>>>>>>>>", image_path)
                 print(">>>>>>>>>>>", image_name)
             # Prepare updated product data
             product_data = {
                 "id": id,
-                "product_name": name,
-                "product_description": description,
-                "product_price": price,
-                "product_category_id": category_id,
-                "product_subcategory_id": subcategory_id,
+                "product_name": product_name,
+                "product_description": product_description,
+                "product_price": product_price,
+                "product_category_id": product_category_id,
+                "product_subcategory_id": product_subcategory_id,
                 "product_image_names": image_name,
                 "product_image_paths": image_path,
-                "product_quantity": quantity,
+                "product_quantity": product_quantity,
                 "modified_at": get_current_timestamp(),
             }
 

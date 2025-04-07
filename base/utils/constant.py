@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-class Settings:
+class Constant:
     DB_SCHEME = os.getenv("DB_SCHEME")
     DB_USERNAME = os.getenv("DB_USER")
     DB_PASSWORD = os.getenv("DB_PASSWORD")
@@ -32,4 +32,4 @@ class Settings:
     SECRET_KEY = os.getenv("SECRET_KEY")
 
 
-settings = Settings()
+constant = Constant()

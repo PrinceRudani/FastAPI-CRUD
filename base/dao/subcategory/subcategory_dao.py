@@ -25,8 +25,6 @@ class SubcategoryDAO:
     def get_subcategory_by_id_dao(id):
         """Fetch a single subcategory by ID (excluding soft-deleted records)."""
         subcategory_data = MysqlCommonQuery.get_by_id_query(SubcategoryVO, id)
-        if subcategory_data.subcategory_category_id == 1:
-            return None
         return subcategory_data
 
     @staticmethod
