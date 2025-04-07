@@ -1,7 +1,8 @@
-from fastapi import APIRouter, HTTPException, Response
+from fastapi import APIRouter, HTTPException, Response, BackgroundTasks
 
-from base.api.controller.notification.notification_controller import \
-    NotificationController
+from base.api.controller.notification.notification_controller import (
+    NotificationController,
+)
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.custom_enum.static_enum import StaticVariables
@@ -19,23 +20,25 @@ login_router = APIRouter(
 
 
 @login_router.post("/user_login")
-def user_login(login_dto: LoginDTO, response: Response):
+def user_login(
+    login_dto: LoginDTO,
+    response: Response,
+    background_tasks: BackgroundTasks,
+):
     try:
         if not login_dto:
-            raise HTTPException(status_code=400,
-                                detail="Invalid login request.")
+            raise HTTPException(status_code=400, detail="Invalid login request.")
 
-        response_payload = LoginService.login_user(login_dto, response)
-        email_sent = NotificationController.send_email_notification(
-            to_email=StaticVariables.RECEIVER_EMAIL,
-            subject=" user login successfully",
-            message=f"user login '{login_dto.login_username}'successfully ."
+        response_payload = LoginService.login_user(
+            login_dto, response, background_tasks
         )
-        return response_payload,email_sent
+
+        return response_payload
 
     except Exception as ex:
         logger.error(f"Login Error: {str(ex)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+
 
 @login_router.post("/user_logout")
 def user_logout(login_dto: LoginDTO, response: Response):
@@ -54,4 +57,3 @@ def user_logout(login_dto: LoginDTO, response: Response):
     except Exception as ex:
         logger.error(f"Logout Error: {str(ex)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
-

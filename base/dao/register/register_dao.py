@@ -7,8 +7,7 @@ class RegisterDAO:
     @staticmethod
     def check_existing_user(username):
         """Check if the username already exists."""
-        return MysqlCommonQuery.get_record_by_field(LoginVO, "login_username",
-                                                    username)
+        return MysqlCommonQuery.get_record_by_field(LoginVO, "login_username", username)
 
     @staticmethod
     def insert_register_user(register_vo):
@@ -17,5 +16,6 @@ class RegisterDAO:
 
     @staticmethod
     def get_role(role_vo):
-        return MysqlCommonQuery.get_record_by_field(RoleVO, "role_name",
-                                                    role_vo.role_name)
+        return MysqlCommonQuery.get_record_by_field(
+            RoleVO, "role_name", role_vo.role_name
+        )

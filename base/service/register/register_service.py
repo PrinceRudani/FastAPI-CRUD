@@ -1,6 +1,9 @@
 import bcrypt
 from fastapi import FastAPI
 
+from base.api.controller.notification.notification_controller import (
+    NotificationController,
+)
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.custom_enum.static_enum import StaticVariables
@@ -18,21 +21,22 @@ app = FastAPI()
 
 class RegisterService:
     @staticmethod
-    def register_user(register_dto):
+    def register_user(register_dto, background_tasks):
         """Handles user registration logic."""
 
-        existing_user = RegisterDAO.check_existing_user(
-            register_dto.register_username)
+        existing_user = RegisterDAO.check_existing_user(register_dto.register_username)
         if existing_user:
             return AppServices.app_response(
                 HttpStatusCodeEnum.NOT_FOUND,
                 ResponseMessageEnum.ALREADY_EXISTS,
-                success=False, data={}
+                success=False,
+                data={},
             )
 
         # Hash password
         hashed_password = bcrypt.hashpw(
-            register_dto.register_password.encode(), bcrypt.gensalt()).decode()
+            register_dto.register_password.encode(), bcrypt.gensalt()
+        ).decode()
 
         timestamp = get_current_timestamp()
 
@@ -41,7 +45,7 @@ class RegisterService:
             login_username=register_dto.register_username,
             login_password=hashed_password,
             created_at=timestamp,
-            modified_at=timestamp
+            modified_at=timestamp,
         )
 
         login_record = LoginDAO.insert_login_user(login_user)
@@ -49,11 +53,11 @@ class RegisterService:
             return AppServices.app_response(
                 HttpStatusCodeEnum.INTERNAL_SERVER_ERROR,
                 ResponseMessageEnum.USER_LOGIN_FAILED,
-                success=False, data={}
+                success=False,
+                data={},
             )
 
-        role_record = RegisterDAO.get_role(
-            RoleVO(role_name=StaticVariables.ADMIN_ROLE))
+        role_record = RegisterDAO.get_role(RoleVO(role_name=StaticVariables.ADMIN_ROLE))
         print("role_record>>>>>>>>>>>>>>>>>>>>>>>>>>", role_record)
         logger.info(f"Role Record: {role_record}, Type: {type(role_record)}")
 
@@ -61,7 +65,8 @@ class RegisterService:
             return AppServices.app_response(
                 HttpStatusCodeEnum.INTERNAL_SERVER_ERROR,
                 ResponseMessageEnum.USER_NOT_FOUND,
-                success=False, data={}
+                success=False,
+                data={},
             )
 
         # Create and insert registered user
@@ -74,7 +79,7 @@ class RegisterService:
             register_phone=register_dto.register_phone,
             role=role_record.id,
             created_at=timestamp,
-            modified_at=timestamp
+            modified_at=timestamp,
         )
         print("register_user>>>>>>>>>>>>>>>>>>>>>>>>>>", register_user.role)
 
@@ -83,12 +88,18 @@ class RegisterService:
             return AppServices.app_response(
                 HttpStatusCodeEnum.INTERNAL_SERVER_ERROR,
                 ResponseMessageEnum.NOT_FOUND,
-                success=False, data={}
+                success=False,
+                data={},
             )
+        background_tasks.add_task(
+            NotificationController.send_email_notification,
+            subject=" user register successfully",
+            message=f"user register {register_dto.register_firstname + register_dto.register_lastname}'successfully .",
+        )
 
         return AppServices.app_response(
             HttpStatusCodeEnum.CREATED,
             ResponseMessageEnum.INSERT_DATA,
             success=True,
-            data={register_record}
+            data={register_record},
         )

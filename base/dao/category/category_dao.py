@@ -19,7 +19,7 @@ class CategoryDAO:
     def delete_category_dao(id):
         """Call common delete method for category."""
         category_data = MysqlCommonQuery.soft_delete_query(CategoryVO, id)
-        print("category_data",category_data)
+        print("category_data", category_data)
         return category_data
 
     @staticmethod

@@ -7,6 +7,7 @@ logger = get_logger()
 
 UPLOAD_DIR = "static/product_image/"
 
+
 class ProductImageUploader:
     @staticmethod
     def save_image(images):
@@ -23,7 +24,9 @@ class ProductImageUploader:
 
                 for image in images:
                     # Extract original filename without any FastAPI prefix
-                    original_filename = os.path.basename(image.filename)  # 🔥 Ensures only the filename remains
+                    original_filename = os.path.basename(
+                        image.filename
+                    )  # 🔥 Ensures only the filename remains
                     image_path = os.path.join(UPLOAD_DIR, original_filename)
 
                     print("Saving image to >>>", image_path)

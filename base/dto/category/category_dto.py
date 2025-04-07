@@ -12,6 +12,5 @@ class UpdateCategoryDTO(BaseModel):
     category_name: str
     category_description: str
 
-
     class Config:
         from_attributes = True

@@ -1,5 +1,8 @@
 from fastapi import UploadFile
 
+from base.api.controller.notification.notification_controller import (
+    NotificationController,
+)
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.dao.category.category_dao import CategoryDAO
@@ -17,19 +20,21 @@ UPLOAD_DIR = "static/product_image/"
 class ProductService:
     @staticmethod
     def insert_product_service(
-            product_category_id,
-            product_subcategory_id,
-            product_name,
-            product_description,
-            product_price,
-            product_quantity,
-            product_images,
+        background_tasks,
+        product_category_id,
+        product_subcategory_id,
+        product_name,
+        product_description,
+        product_price,
+        product_quantity,
+        product_images,
     ):
         try:
             # Validate Category and Subcategory
             category = CategoryDAO.get_category_by_id_dao(product_category_id)
             subcategory = SubcategoryDAO.get_subcategory_by_id_dao(
-                product_subcategory_id)
+                product_subcategory_id
+            )
 
             if not category or category.is_deleted:
                 return AppServices.app_response(
@@ -47,8 +52,7 @@ class ProductService:
                 )
 
             # Save images safely
-            image_name, image_path = ProductImageUploader.save_image(
-                product_images)
+            image_name, image_path = ProductImageUploader.save_image(product_images)
 
             product_data = {
                 "product_category_id": product_category_id,
@@ -68,6 +72,12 @@ class ProductService:
             product_vo = ProductVO(**product_data)
             product_insert_data = ProductDAO.insert_product_dao(product_vo)
 
+            background_tasks.add_task(
+                NotificationController.send_email_notification,
+                subject="New Product Inserted",
+                message=f"Product '{product_name}' was successfully added.",
+            )
+
             return AppServices.app_response(
                 HttpStatusCodeEnum.CREATED.value,
                 ResponseMessageEnum.INSERT_DATA.value,
@@ -84,6 +94,7 @@ class ProductService:
         """Retrieve all products."""
         try:
             products = ProductDAO.get_all_product_dao()
+
             return AppServices.app_response(
                 HttpStatusCodeEnum.OK.value,
                 ResponseMessageEnum.GET_DATA.value,
@@ -95,11 +106,17 @@ class ProductService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    def get_product_by_id_service(id):
+    def get_product_by_id_service(id, background_tasks):
         """Retrieve product by id."""
         try:
             product = ProductDAO.get_product_by_id_dao(id)
-            product
+
+            background_tasks.add_task(
+                NotificationController.send_email_notification,
+                subject=" Product fetched successfully",
+                message=f"Product '{id}' was successfully fetched.",
+            )
+
             return AppServices.app_response(
                 HttpStatusCodeEnum.OK.value,
                 ResponseMessageEnum.GET_DATA.value,
@@ -111,10 +128,17 @@ class ProductService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    def delete_product_service(id):
+    def delete_product_service(id, background_tasks):
         """Soft delete a product by ID."""
         try:
             deleted_product = ProductDAO.delete_product_dao(id)
+
+            background_tasks.add_task(
+                NotificationController.send_email_notification,
+                subject=" Product deleted successfully",
+                message=f"Product '{id}' was successfully deleted.",
+            )
+
             return AppServices.app_response(
                 HttpStatusCodeEnum.OK.value,
                 ResponseMessageEnum.DELETE_DATA.value,
@@ -127,14 +151,15 @@ class ProductService:
 
     @staticmethod
     def update_product_service(
-            id,
-            product_category_id,
-            product_subcategory_id,
-            product_name,
-            product_description,
-            product_price,
-            product_quantity,
-            product_images: UploadFile,
+        background_tasks,
+        id,
+        product_category_id,
+        product_subcategory_id,
+        product_name,
+        product_description,
+        product_price,
+        product_quantity,
+        product_images: UploadFile,
     ):
         """Update product, replacing image only if a new one is uploaded."""
         try:
@@ -162,9 +187,9 @@ class ProductService:
 
             # Validate Subcategory (Fixing NoneType issue)
             subcategory = SubcategoryDAO.get_subcategory_by_id_dao(
-                product_subcategory_id)
-            if subcategory is None or getattr(subcategory, "is_deleted",
-                                              False):
+                product_subcategory_id
+            )
+            if subcategory is None or getattr(subcategory, "is_deleted", False):
                 logger.info(
                     "Attempt to update product with deleted or non-existent subcategory ID: %d",
                     product_subcategory_id,
@@ -180,8 +205,7 @@ class ProductService:
             image_path = existing_product.product_image_paths
 
             if product_images:
-                image_name, image_path = (
-                    ProductImageUploader.save_image(product_images))
+                image_name, image_path = ProductImageUploader.save_image(product_images)
                 print(">>>>>>>>>>>", image_path)
                 print(">>>>>>>>>>>", image_name)
             # Prepare updated product data
@@ -201,6 +225,12 @@ class ProductService:
             # Update the product
             product_vo = ProductVO(**product_data)
             updated_product_data = ProductDAO.update_product_dao(product_vo)
+
+            background_tasks.add_task(
+                NotificationController.send_email_notification,
+                subject=" Product updated successfully",
+                message=f"Product '{id}' was successfully updated.",
+            )
 
             return AppServices.app_response(
                 HttpStatusCodeEnum.OK.value,

@@ -21,7 +21,11 @@ class RegisterVO(Base):
     register_email = Column(String(50), nullable=False)
     register_gender = Column(String(50), nullable=False)
     register_phone = Column(String(50), nullable=False)
-    role = Column(Integer, ForeignKey("role_table.id", ondelete="CASCADE", onupdate="CASCADE"), nullable=False)
+    role = Column(
+        Integer,
+        ForeignKey("role_table.id", ondelete="CASCADE", onupdate="CASCADE"),
+        nullable=False,
+    )
     is_delete = Column(Boolean, nullable=False, default=False)
     created_at = Column(String(30))
     modified_at = Column(String(30))
