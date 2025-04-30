@@ -1,54 +1,185 @@
-from sqlalchemy.orm import Session
-
+from base.api.controller.notification.notification_controller import (
+    NotificationController,
+)
+from base.config.logger_config import get_logger
+from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.dao.category.category_dao import CategoryDAO
-from base.dto.category.category_dto import CategoryDTO
+from base.utils.custom_exception import AppServices
 from base.utils.time_stamp import get_current_timestamp
 from base.vo.category_vo import CategoryVO
-from base.config.logger_config import get_logger
 
 logger = get_logger()
 
 
 class CategoryService:
     @staticmethod
-    def insert_category(category_dto: CategoryDTO, session: Session):
+    def insert_category_service(category_dao_data, background_tasks):
         """Convert DTO to Model & Insert Category."""
-        db_category = CategoryVO(**category_dto.model_dump())
-        db_category.created_at = get_current_timestamp()
-        db_category.modified_at = get_current_timestamp()
-        return CategoryDAO.insert_category(session, db_category)
+        try:
+            category_vo = CategoryVO()
+            category_vo.category_name = category_dao_data.category_name
+            category_vo.category_description = category_dao_data.category_description
+            category_vo.created_at = get_current_timestamp()
+            category_vo.modified_at = get_current_timestamp()
+            category_insert_data = CategoryDAO.insert_category_dao(category_vo)
+            if not category_insert_data:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    success=False,
+                    data={},
+                )
+
+            background_tasks.add_task(
+                NotificationController.send_email_notification,
+                subject="New Category Inserted",
+                message=f"Category '{category_dao_data.category_name}' was successfully added.",
+            )
+
+            logger.info("Category inserted successfully: %s", category_vo.category_name)
+            return AppServices.app_response(
+                HttpStatusCodeEnum.CREATED.value,
+                ResponseMessageEnum.INSERT_DATA.value,
+                success=True,
+                data=category_insert_data,
+            )
+        except Exception as exception:
+            logger.exception("Error inserting category")
+            return AppServices.handle_exception(exception)
 
     @staticmethod
-    def get_all_categories(session: Session):
+    def get_all_categories_service():
         """Fetch all categories using CategoryDAO."""
-        return CategoryDAO.get_all_categories(session)
+        try:
+            get_all_category_data = CategoryDAO.get_all_categories_dao()
+            if not get_all_category_data:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    success=False,
+                    data={},
+                )
+
+            return AppServices.app_response(
+                HttpStatusCodeEnum.ACCEPTED.value,
+                ResponseMessageEnum.GET_DATA.value,
+                success=True,
+                data=get_all_category_data,
+            )
+        except Exception as exception:
+            logger.exception("Error fetching all categories")
+            return AppServices.handle_exception(exception)
 
     @staticmethod
-    def delete_category(session: Session, id: int):
+    def delete_category_service(id, background_tasks):
         """Soft delete a category by ID."""
-        return CategoryDAO.delete_category(session, id)
+        try:
+            delete_category_data = CategoryDAO.delete_category_dao(id)
+            delete_category_data.is_deleted = True
+            if not delete_category_data:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    success=False,
+                    data={},
+                )
+            background_tasks.add_task(
+                NotificationController.send_email_notification,
+                subject=" Category deleted successfully",
+                message=f"Category '{id}' was successfully deleted.",
+            )
+
+            return AppServices.app_response(
+                HttpStatusCodeEnum.ACCEPTED.value,
+                ResponseMessageEnum.DELETE_DATA.value,
+                success=True,
+                data=delete_category_data,
+            )
+
+        except Exception as exception:
+            logger.exception("Error deleting category")
+            return AppServices.handle_exception(exception)
 
     @staticmethod
-    def get_category_by_id(session: Session, id: int):
+    def get_category_by_id_service(id, background_tasks):
         """Retrieve category details for editing."""
-        category = CategoryDAO.get_category_by_id(session, id)
+        try:
+            get_category_detail = CategoryDAO.get_category_by_id_dao(id)
+            if not get_category_detail:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    success=False,
+                    data={},
+                )
+            background_tasks.add_task(
+                NotificationController.send_email_notification,
+                subject=" Category fetched successfully",
+                message=f"Category '{id}' was successfully fetched.",
+            )
 
-        if not category:
-            raise ValueError("Category not found")
-
-        return category
+            return AppServices.app_response(
+                HttpStatusCodeEnum.ACCEPTED.value,
+                ResponseMessageEnum.GET_DATA.value,
+                success=True,
+                data=get_category_detail,
+            )
+        except Exception as exception:
+            logger.exception("Error retrieving category with ID %d", id)
+            return AppServices.handle_exception(exception)
 
     @staticmethod
-    def update_category(session: Session, id: int, category_dto: CategoryDTO):
+    def update_category_service(category_data, background_tasks):
         """Update category details."""
-        category = CategoryDAO.get_category_by_id(session, id)
+        try:
+            if not category_data.id:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND.value,
+                    ResponseMessageEnum.USER_NOT_FOUND.value,
+                    success=False,  # Should be False because it's an error
+                    data={},
+                )
 
-        if not category:
-            raise ValueError("Category not found")
+            # Fetch the existing category from DB
+            existing_category = CategoryDAO.get_category_by_id_dao(category_data.id)
+            if not existing_category:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    # Use correct response message
+                    success=False,
+                    data={},
+                )
 
-        # Update category fields
-        category.category_name = category_dto.category_name
-        category.category_description = category_dto.category_description
-        category.modified_at = get_current_timestamp()
+            # Update category details
+            category_vo = CategoryVO()
+            category_vo.id = category_data.id
+            category_vo.category_name = category_data.category_name
+            category_vo.category_description = category_data.category_description
+            category_vo.modified_at = get_current_timestamp()
 
-        return CategoryDAO.update_category(session, category)
+            updated_category_data = CategoryDAO.update_category_dao(category_vo)
+            if not updated_category_data:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    ResponseMessageEnum.USER_NOT_FOUND.value,
+                    # Use a specific message for update failure
+                    success=False,
+                    data={},
+                )
+            background_tasks.add_task(
+                NotificationController.send_email_notification,
+                subject=" Category updated successfully",
+                message=f"Category '{id}' was successfully updated.",
+            )
+
+            return AppServices.app_response(
+                HttpStatusCodeEnum.ACCEPTED.value,
+                ResponseMessageEnum.UPDATE_DATA.value,
+                success=True,
+                data=updated_category_data,
+            )
+
+        except Exception as exception:
+            logger.exception("Error updating category with ID %s", category_data.id)
+            return AppServices.handle_exception(exception)

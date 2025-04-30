@@ -1,21 +1,99 @@
+"""
+This module provides database connectivity and session management.
+
+Author: Tarun Mondal
+Designation: Software Engineer
+"""
+
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:root@localhost:3306/FastCRUD_db"
+from base.utils.constant import constant
+from base.utils.custom_exception import AppServices
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+DB_HOST = constant.DB_HOST
+DB_USERNAME = constant.DB_USERNAME
+DB_PASSWORD = constant.DB_PASSWORD
+DB_PORT = constant.DB_PORT
+DB_NAME = constant.DB_NAME
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+MYSQL_URL = f"mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?charset=utf8"
+POOL_SIZE = 10
+POOL_RECYCLE = 3600
+POOL_TIMEOUT = 15
+MAX_OVERFLOW = 0
+CONNECT_TIMEOUT = 3600
+PREPING = True
+
+
+class Database:
+    """
+    Singleton class for managing database connections and sessions.
+    Author: Tarun Mondal
+    Designation: Software Engineer
+    """
+
+    _instance = None
+
+    def __init__(self):
+        self.engine = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(Database, cls).__new__(cls)
+            cls._instance.connection_is_active = False
+            cls._instance.engine = None
+        return cls._instance
+
+    def get_db_connection(self):
+        """
+        Get a database engine connection.
+        Author: Tarun Mondal
+        Designation: Software Engineer
+
+        Returns:
+            engine: SQLAlchemy database engine.
+        """
+        if not self.connection_is_active:
+            connect_args = {"connect_timeout": CONNECT_TIMEOUT}
+            try:
+                self.engine = create_engine(
+                    MYSQL_URL,
+                    pool_size=POOL_SIZE,
+                    pool_recycle=POOL_RECYCLE,
+                    pool_timeout=POOL_TIMEOUT,
+                    max_overflow=MAX_OVERFLOW,
+                    connect_args=connect_args,
+                    pool_pre_ping=PREPING,
+                )
+                print("Database connection established : ", self.engine)
+                return self.engine
+            except Exception as exception:
+                AppServices.handle_exception(exception, is_raise=True)
+        return self.engine
+
+    @staticmethod
+    def get_db_session(engine):
+        """
+        Get a database session.
+        Author: Tarun Mondal
+        Designation: Software Engineer
+
+        Args:
+            engine: SQLAlchemy database engine.
+
+        Returns:
+            session: SQLAlchemy database session.
+        """
+        try:
+            db_session = sessionmaker(bind=engine)
+            session = db_session()
+            return session
+        except Exception as exception:
+            AppServices.handle_exception(exception, is_raise=True)
+
 
 Base = declarative_base()
-"""Base is a superclass for all ORM models.
-All database models (tables) will inherit from Base."""
-
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+database = Database()
+engine = database.get_db_connection()
+Base.metadata.create_all(engine)

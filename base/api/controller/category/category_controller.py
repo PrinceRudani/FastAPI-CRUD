@@ -1,12 +1,12 @@
-from typing import List
-
-from fastapi import APIRouter, Depends, status, Form
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, Request, Response, Depends, BackgroundTasks
 
 from base.config.logger_config import get_logger
-from base.db.database import get_db
-from base.dto.category.category_dto import CategoryDTO, CategoryResponse
+from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
+from base.custom_enum.static_enum import StaticVariables
+from base.dto.category.category_dto import CategoryDTO, UpdateCategoryDTO
+from base.middleware.api_key_validator import verify_api_key
 from base.service.category.category_service import CategoryService
+from base.service.login.login_service import login_required
 from base.utils.custom_exception import AppServices
 
 logger = get_logger()
@@ -18,91 +18,97 @@ category_router = APIRouter(
 )
 
 
-@category_router.post("/insert", status_code=status.HTTP_201_CREATED)
-async def insert_category(
-        category: CategoryDTO = Depends(CategoryDTO.as_form),
-        db: Session = Depends(get_db),
+@category_router.post("/insert", dependencies=[Depends(verify_api_key)])
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE])
+def insert_category_controller(
+    request: Request,
+    response: Response,
+    category_dto: CategoryDTO,
+    background_tasks: BackgroundTasks,
 ):
     try:
-        logger.info("Attempting to insert new category: %s",
-                    category.category_name)
-        result = CategoryService.insert_category(category, db)
-        logger.info("Category inserted successfully: %s",
-                    category.category_name)
+        if not category_dto:
+            response.status_code = HttpStatusCodeEnum.BAD_REQUEST
+            return AppServices.app_response(
+                HttpStatusCodeEnum.BAD_REQUEST.value,
+                ResponseMessageEnum.NOT_FOUND.value,
+                success=False,
+            )
+        logger.info("Attempting to insert new category: %s", category_dto.category_name)
+        result = CategoryService.insert_category_service(category_dto, background_tasks)
+
         return result
-    except Exception as e:
+
+    except Exception as exception:
         logger.exception("Error inserting category")
-        return AppServices.handle_exception(e)
+        return AppServices.handle_exception(exception)
 
 
-@category_router.get(
-    "/all", response_model=List[CategoryResponse],
-    status_code=status.HTTP_200_OK
-)
-async def view_category(db: Session = Depends(get_db)):
+@category_router.get("/all", dependencies=[Depends(verify_api_key)])
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE])
+def view_category_controller(request: Request, response: Response):
     try:
-        result = CategoryService.get_all_categories(db)
-        logger.info("Fetched all (%d) categories", len(result))
-        return result
-    except Exception as e:
+        response_payload = CategoryService.get_all_categories_service()
+        logger.info(f"Response for verify_member is {response_payload}")
+        return response_payload
+    except Exception as exception:
         logger.exception("Error fetching categories")
-        return AppServices.handle_exception(e)
+        return AppServices.handle_exception(exception)
 
 
-@category_router.delete("/delete/{id}", status_code=status.HTTP_200_OK)
-async def delete_category(id: int, db: Session = Depends(get_db)):
+@category_router.delete("/delete/{id}", dependencies=[Depends(verify_api_key)])
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE])
+def delete_category_controller(
+    request: Request,
+    response: Response,
+    id,
+    background_tasks: BackgroundTasks,
+):
     try:
-        logger.info("Attempting to delete category with ID: %d", id)
-        db_category = CategoryService.delete_category(db, id)
-        if not db_category:
-            logger.warning("Category not found for deletion: ID %d", id)
-            return {"message": "Category not found for delete", "id": id}
-        logger.info("Category deleted successfully: ID %d", id)
-        return {"message": "Category soft-deleted successfully", "id": id}
-    except Exception as e:
+        response_payload = CategoryService.delete_category_service(id, background_tasks)
+        print("respomse>>>>>>>>>>>", response_payload)
+
+        logger.info(f"Response for verify_member is {response_payload}")
+        return response_payload
+    except Exception as exception:
         logger.exception("Error deleting category")
-        return AppServices.handle_exception(e)
+        return AppServices.handle_exception(exception)
 
 
-@category_router.get(
-    "/{id}", response_model=CategoryResponse, status_code=status.HTTP_200_OK
-)
-async def edit_category(id: int, db: Session = Depends(get_db)):
+@category_router.get("/get/{id}", dependencies=[Depends(verify_api_key)])
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE])
+def get_category_by_id_controller(
+    request: Request, response: Response, id: int, background_tasks: BackgroundTasks
+):
+    print(">>>>>>>>>>>>>")
     try:
         logger.info("Fetching category details for ID: %d", id)
-        category_data = CategoryService.get_category_by_id(db, id)
-        if not category_data:
-            logger.warning("Category not found: ID %d", id)
-        else:
-            logger.info("Category details fetched successfully: ID %d", id)
-        return category_data
-    except Exception as e:
+        response_payload = CategoryService.get_category_by_id_service(
+            id, background_tasks
+        )
+
+        logger.info("Response for fetching category")
+        return response_payload
+    except Exception as exception:
         logger.exception("Error fetching category details")
-        return AppServices.handle_exception(e)
+        return AppServices.handle_exception(exception)
 
 
-@category_router.put(
-    "/update/{id}",
-    response_model=CategoryResponse,
-    status_code=status.HTTP_200_OK,
-)
-async def update_category(
-        id: int,
-        category_name: str = Form(...),
-        category_description: str = Form(...),
-        db: Session = Depends(get_db),
+@category_router.put("/update/{id}", dependencies=[Depends(verify_api_key)])
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE])
+def update_category_controller(
+    request: Request,
+    response: Response,
+    update_category_dto: UpdateCategoryDTO,
+    background_tasks: BackgroundTasks,
 ):
     try:
-        logger.info("Attempting to update category: ID %d, Name: %s", id,
-                    category_name)
-        category_dto = CategoryDTO(
-            category_name=category_name,
-            category_description=category_description
+        response_payload = CategoryService.update_category_service(
+            update_category_dto, background_tasks
         )
-        result = CategoryService.update_category(db, id, category_dto)
-        logger.info("Category updated successfully: ID %d, Name: %s", id,
-                    category_name)
-        return result
-    except Exception as e:
+
+        logger.info("Response for update_category is %s", response_payload)
+        return response_payload
+    except Exception as exception:
         logger.exception("Error updating category")
-        return AppServices.handle_exception(e)
+        return AppServices.handle_exception(exception)
